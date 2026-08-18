@@ -1,31 +1,31 @@
 @echo off
-chcp 65001 >nul
 echo ============================================
-echo    更新作品集到 GitHub Pages
+echo    Update Portfolio to GitHub Pages
 echo ============================================
 echo.
 
-set /p MSG="请输入更新说明(默认: 更新作品集内容): "
-if "%MSG%"=="" set MSG=更新作品集内容
+set /p MSG="Enter update message (default: update): "
+if "%MSG%"=="" set MSG=update portfolio
 
 echo.
-echo 正在添加更改...
+echo Adding changes...
 git add .
 
-echo 正在提交...
+echo Committing...
 git commit -m "%MSG%"
 
-echo 正在推送...
+echo Pushing...
 git push
 
 if %ERRORLEVEL% EQU 0 (
   echo.
   echo ============================================
-  echo    更新成功！1-2分钟后刷新网页即可看到
+  echo    UPDATE SUCCESS!
   echo ============================================
+  echo Refresh your page in 1-2 minutes.
 ) else (
   echo.
-  echo 更新失败，请检查网络连接或运行 deploy.bat
+  echo Update failed. Please run deploy.bat first.
 )
 
 echo.
