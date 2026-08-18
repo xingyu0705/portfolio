@@ -1,0 +1,1097 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<title>汪星妤 · 商业运营作品集</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0a0a0f;--bg-2:#12121a;--surface:#1a1a24;--surface-2:#22222e;
+  --border:rgba(255,255,255,0.08);--border-hi:rgba(255,255,255,0.15);
+  --text:#f5f5f7;--text-2:#a1a1aa;--text-3:#71717a;--text-4:#52525b;
+  --accent:#6366f1;--accent-l:#818cf8;--accent-glow:rgba(99,102,241,0.25);
+  --accent-2:#f472b6;--accent-3:#34d399;--accent-4:#fbbf24;
+  --grad:linear-gradient(135deg,#6366f1 0%,#a855f7 50%,#ec4899 100%);
+  --grad-2:linear-gradient(135deg,#34d399 0%,#22d3ee 100%);
+  --font:'Noto Sans SC','Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:80px}
+body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:1.7;font-size:15px;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.container{max-width:1200px;margin:0 auto;padding:0 32px}
+.mono{font-family:var(--mono)}
+::selection{background:var(--accent);color:#fff}
+
+/* ===== NAV ===== */
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.7);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border)}
+.nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
+.nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;color:var(--text);text-decoration:none}
+.nav-logo{width:32px;height:32px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff}
+.nav-links{display:flex;gap:32px}
+.nav-link{font-size:14px;color:var(--text-2);text-decoration:none;font-weight:500;transition:color .2s;position:relative}
+.nav-link:hover{color:var(--text)}
+.nav-link::after{content:'';position:absolute;bottom:-6px;left:0;width:0;height:2px;background:var(--accent-l);transition:width .3s;border-radius:1px}
+.nav-link:hover::after{width:100%}
+.nav-cta{font-size:13px;font-weight:600;color:#fff;background:var(--accent);padding:10px 20px;border-radius:8px;text-decoration:none;transition:all .25s}
+.nav-cta:hover{background:var(--accent-l);transform:translateY(-1px);box-shadow:0 4px 20px var(--accent-glow)}
+
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
+.hero-bg{position:absolute;inset:0;pointer-events:none}
+.hero-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.4}
+.hero-glow-1{width:600px;height:600px;background:var(--accent);top:-200px;right:-100px}
+.hero-glow-2{width:500px;height:500px;background:#a855f7;bottom:-100px;left:-150px}
+.hero-content{position:relative;z-index:1;width:100%}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);border-radius:999px;font-size:13px;font-weight:500;color:var(--accent-l);margin-bottom:28px}
+.hero-badge-dot{width:7px;height:7px;background:var(--accent-3);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
+.hero h1{font-size:64px;font-weight:900;line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px}
+.hero h1 .grad{background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.hero-role{font-size:22px;color:var(--text-2);font-weight:400;margin-bottom:20px;line-height:1.5}
+.hero-desc{font-size:16px;color:var(--text-3);max-width:580px;line-height:1.8;margin-bottom:36px}
+.hero-meta{display:flex;gap:32px;flex-wrap:wrap;margin-bottom:40px}
+.hero-meta-item{display:flex;flex-direction:column}
+.hero-meta-label{font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--text-4);margin-bottom:4px;font-weight:600}
+.hero-meta-value{font-size:14px;color:var(--text);font-weight:600}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s}
+.btn-primary:hover{background:var(--accent-l);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
+.btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text);border:1px solid var(--border-hi);border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s}
+.btn-secondary:hover{border-color:var(--text);background:rgba(255,255,255,0.05);transform:translateY(-2px)}
+
+/* Hero stats bar */
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:64px;border:1px solid var(--border)}
+.hero-stat{background:var(--surface);padding:24px;text-align:center}
+.hero-stat-num{font-size:32px;font-weight:900;font-family:var(--mono);background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.hero-stat-label{font-size:12px;color:var(--text-3);margin-top:8px;font-weight:500}
+
+/* ===== SECTION ===== */
+.section{padding:96px 0;position:relative}
+.section-alt{background:var(--bg-2)}
+.section-header{margin-bottom:56px}
+.section-label{font-size:12px;text-transform:uppercase;letter-spacing:0.15em;color:var(--accent-l);font-weight:700;margin-bottom:12px;display:block}
+.section-title{font-size:40px;font-weight:800;letter-spacing:-0.02em;margin-bottom:12px}
+.section-desc{font-size:16px;color:var(--text-3);max-width:600px}
+
+/* ===== ABOUT / ADVANTAGES ===== */
+.advantages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.adv-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s;position:relative;overflow:hidden}
+.adv-card:hover{border-color:var(--border-hi);transform:translateY(-4px)}
+.adv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:0;transition:opacity .3s}
+.adv-card:hover::before{opacity:1}
+.adv-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
+.adv-icon-1{background:rgba(99,102,241,0.15)}
+.adv-icon-2{background:rgba(52,211,153,0.15)}
+.adv-icon-3{background:rgba(244,114,182,0.15)}
+.adv-title{font-size:18px;font-weight:700;margin-bottom:12px}
+.adv-desc{font-size:14px;color:var(--text-2);line-height:1.8}
+
+/* ===== EDUCATION ===== */
+.edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;gap:20px;align-items:flex-start;transition:all .3s}
+.edu-card:hover{border-color:var(--border-hi)}
+.edu-logo{width:56px;height:56px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:#fff;flex-shrink:0}
+.edu-school{font-size:18px;font-weight:700;margin-bottom:4px}
+.edu-degree{font-size:14px;color:var(--accent-l);font-weight:600;margin-bottom:4px}
+.edu-period{font-size:13px;color:var(--text-4);font-family:var(--mono)}
+
+/* ===== EXPERIENCE ===== */
+.timeline{position:relative}
+.timeline::before{content:'';position:absolute;left:24px;top:0;bottom:0;width:2px;background:linear-gradient(180deg,var(--accent),var(--accent-2),transparent)}
+.tl-item{position:relative;padding-left:72px;padding-bottom:48px}
+.tl-item:last-child{padding-bottom:0}
+.tl-dot{position:absolute;left:14px;top:4px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);z-index:1}
+.tl-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s}
+.tl-card:hover{border-color:var(--border-hi);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.tl-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;flex-wrap:wrap;gap:12px}
+.tl-company{font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px}
+.tl-company-badge{font-size:11px;padding:3px 10px;border-radius:6px;font-weight:700}
+.badge-bytedance{background:rgba(99,102,241,0.2);color:var(--accent-l)}
+.badge-babycare{background:rgba(244,114,182,0.2);color:var(--accent-2)}
+.badge-kidswant{background:rgba(251,191,36,0.2);color:var(--accent-4)}
+.tl-role{font-size:15px;color:var(--accent-l);font-weight:600;margin-bottom:16px}
+.tl-period{font-size:13px;color:var(--text-4);font-family:var(--mono);background:var(--bg-2);padding:4px 12px;border-radius:6px}
+.tl-list{list-style:none}
+.tl-list li{font-size:14px;color:var(--text-2);line-height:1.8;padding-left:20px;position:relative;margin-bottom:8px}
+.tl-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--accent);border-radius:50%}
+.tl-list li strong{color:var(--text);font-weight:700}
+
+/* ===== PROJECTS - World-class Visual Narrative ===== */
+.projects-list{display:flex;flex-direction:column;gap:140px}
+.project{position:relative}
+.project-inner{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center}
+.project:nth-child(even) .project-inner{direction:rtl}
+.project:nth-child(even) .project-inner > *{direction:ltr}
+.project-number{position:absolute;top:-40px;font-size:120px;font-weight:900;color:transparent;-webkit-text-stroke:1.5px var(--border);font-family:var(--mono);line-height:1;user-select:none;z-index:0;opacity:0.6}
+.project:nth-child(odd) .project-number{left:-20px}
+.project:nth-child(even) .project-number{right:-20px}
+.project-content{position:relative;z-index:2}
+.project-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
+.project-index{font-size:12px;font-weight:700;font-family:var(--mono);color:var(--text-4);letter-spacing:0.1em}
+.project-tag{display:inline-block;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:0.06em}
+.tag-1{background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(99,102,241,0.08));color:var(--accent-l);border:1px solid rgba(99,102,241,0.2)}
+.tag-2{background:linear-gradient(135deg,rgba(244,114,182,0.2),rgba(244,114,182,0.08));color:var(--accent-2);border:1px solid rgba(244,114,182,0.2)}
+.tag-3{background:linear-gradient(135deg,rgba(52,211,153,0.2),rgba(52,211,153,0.08));color:var(--accent-3);border:1px solid rgba(52,211,153,0.2)}
+.tag-4{background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(251,191,36,0.08));color:var(--accent-4);border:1px solid rgba(251,191,36,0.2)}
+.project-title{font-size:32px;font-weight:900;line-height:1.15;margin-bottom:12px;letter-spacing:-0.02em}
+.project-subtitle{font-size:15px;color:var(--text-3);margin-bottom:20px;font-style:italic;font-weight:500}
+.project-desc{font-size:14px;color:var(--text-2);line-height:1.85;margin-bottom:28px}
+.project-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 14px;text-align:center;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden}
+.metric::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent-glow));opacity:0;transition:opacity .3s}
+.metric > *{position:relative;z-index:1}
+.metric:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 30px rgba(99,102,241,0.2)}
+.metric:hover::before{opacity:0.08}
+.metric-num{font-size:22px;font-weight:900;font-family:var(--mono);line-height:1;margin-bottom:6px}
+.metric-num.green{color:var(--accent-3)}
+.metric-num.blue{color:var(--accent-l)}
+.metric-num.pink{color:var(--accent-2)}
+.metric-num.gold{color:var(--accent-4)}
+.metric-label{font-size:10.5px;color:var(--text-4);font-weight:500;line-height:1.4}
+
+.project-visual{position:relative;height:480px;perspective:1200px;z-index:1}
+.bento-grid{position:relative;width:100%;height:100%}
+.bento-img{position:absolute;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.2);transition:all .5s cubic-bezier(.2,.8,.2,1);cursor:pointer;background:var(--bg-2)}
+.bento-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .4s}
+.bento-img:hover{z-index:10;box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 0 2px var(--accent-glow)}
+.bento-img:hover img{transform:scale(1.06)}
+
+/* Bento layout variants per project */
+.project-v1 .bento-main{width:62%;height:72%;top:8%;left:0;transform:rotate(-2deg)}
+.project-v1 .bento-sub1{width:34%;height:45%;top:0;right:2%;transform:rotate(3deg)}
+.project-v1 .bento-sub2{width:34%;height:42%;bottom:8%;right:0;transform:rotate(-1.5deg)}
+.project-v1 .bento-chip{position:absolute;bottom:12%;left:4%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+.project-v2 .bento-main{width:60%;height:68%;bottom:5%;right:5%;transform:rotate(2.5deg)}
+.project-v2 .bento-sub1{width:38%;height:40%;top:5%;left:0;transform:rotate(-3deg)}
+.project-v2 .bento-sub2{width:32%;height:35%;bottom:15%;left:8%;transform:rotate(1deg)}
+.project-v2 .bento-chip{position:absolute;top:8%;right:6%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+.project-v3 .bento-main{width:58%;height:65%;top:15%;left:5%;transform:rotate(-1.5deg)}
+.project-v3 .bento-sub1{width:40%;height:42%;top:0;right:0;transform:rotate(2deg)}
+.project-v3 .bento-sub2{width:36%;height:38%;bottom:5%;right:8%;transform:rotate(-2.5deg)}
+.project-v3 .bento-chip{position:absolute;top:20%;right:2%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+.project-v4 .bento-main{width:65%;height:70%;top:10%;right:0;transform:rotate(2deg)}
+.project-v4 .bento-sub1{width:33%;height:38%;top:0;left:5%;transform:rotate(-2deg)}
+.project-v4 .bento-sub2{width:30%;height:35%;bottom:10%;left:0;transform:rotate(3deg)}
+.project-v4 .bento-chip{position:absolute;bottom:14%;left:38%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+.project-v5 .bento-main{width:60%;height:68%;bottom:8%;left:3%;transform:rotate(-2.5deg)}
+.project-v5 .bento-sub1{width:38%;height:45%;top:5%;right:3%;transform:rotate(3deg)}
+.project-v5 .bento-sub2{width:30%;height:32%;bottom:12%;right:10%;transform:rotate(-1deg)}
+.project-v5 .bento-chip{position:absolute;top:10%;left:2%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+.project-v6 .bento-main{width:62%;height:70%;top:8%;right:4%;transform:rotate(1.5deg)}
+.project-v6 .bento-sub1{width:35%;height:40%;bottom:10%;left:0;transform:rotate(-3deg)}
+.project-v6 .bento-sub2{width:32%;height:34%;top:5%;left:6%;transform:rotate(2deg)}
+.project-v6 .bento-chip{position:absolute;bottom:15%;right:5%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+.project-v7 .bento-main{width:58%;height:65%;top:12%;left:8%;transform:rotate(2deg)}
+.project-v7 .bento-sub1{width:40%;height:44%;top:0;right:0;transform:rotate(-2.5deg)}
+.project-v7 .bento-sub2{width:34%;height:36%;bottom:8%;right:6%;transform:rotate(1.5deg)}
+.project-v7 .bento-chip{position:absolute;top:18%;right:3%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+.project-v8 .bento-main{width:64%;height:72%;top:6%;right:2%;transform:rotate(-2deg)}
+.project-v8 .bento-sub1{width:34%;height:40%;top:10%;left:0;transform:rotate(3deg)}
+.project-v8 .bento-sub2{width:30%;height:32%;bottom:8%;left:8%;transform:rotate(-1deg)}
+.project-v8 .bento-chip{position:absolute;bottom:12%;right:4%;padding:8px 16px;background:rgba(0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+
+/* Hover: images align */
+.project-visual:hover .bento-main{transform:rotate(0) translateY(-4px) scale(1.02)}
+.project-visual:hover .bento-sub1{transform:rotate(0) translateY(-6px) scale(1.03)}
+.project-visual:hover .bento-sub2{transform:rotate(0) translateY(-2px) scale(1.02)}
+.bento-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.5));pointer-events:none;border-radius:16px;opacity:0;transition:opacity .4s}
+.bento-img:hover .bento-overlay{opacity:1}
+
+/* Lightbox */
+.lightbox{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .35s;backdrop-filter:blur(20px)}
+.lightbox.open{opacity:1;visibility:visible}
+.lightbox-img{max-width:88vw;max-height:85vh;object-fit:contain;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,0.6);animation:lightboxIn .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes lightboxIn{from{opacity:0;transform:scale(0.95)}to{opacity:1;transform:scale(1)}}
+.lightbox-close{position:absolute;top:24px;right:24px;width:48px;height:48px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:20px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lightbox-close:hover{background:rgba(255,255,255,0.18);transform:rotate(90deg)}
+.lightbox-nav{position:absolute;top:50%;transform:translateY(-50%);width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.1);color:#fff;font-size:22px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .2s}
+.lightbox-nav:hover{background:rgba(255,255,255,0.18);width:56px}
+.lightbox-prev{left:24px}
+.lightbox-next{right:24px}
+.lightbox-counter{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.5);font-size:13px;font-family:var(--mono);letter-spacing:0.05em}
+.lightbox-caption{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;text-align:center;max-width:60vw}
+
+/* ===== CUSTOM PIE CHART ===== */
+.pie-chart-wrap{position:absolute;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,#1a1a2e,#16213e);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;transition:all .5s cubic-bezier(.2,.8,.2,1);cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.2);z-index:3}
+.pie-chart-wrap:hover{z-index:10;box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 0 2px var(--accent-glow)}
+.pie-chart-wrap .pie-title{font-size:10px;font-weight:700;color:rgba(255,255,255,0.9);text-align:center;margin-bottom:6px;letter-spacing:0.05em;text-transform:uppercase}
+.pie-chart-wrap .pie-subtitle{font-size:8px;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:8px;font-family:var(--mono)}
+.pie-svg{width:120px;height:120px}
+.pie-segment{transition:all .3s cubic-bezier(.2,.8,.2,1);transform-origin:center;cursor:pointer}
+.pie-segment:hover{filter:brightness(1.2);transform:scale(1.05)}
+.pie-center-text{font-family:var(--mono);font-size:20px;font-weight:900;fill:#fff;text-anchor:middle}
+.pie-center-label{font-size:7px;fill:rgba(255,255,255,0.5);text-anchor:middle}
+.pie-legend{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;justify-content:center}
+.pie-legend-item{display:flex;align-items:center;gap:3px}
+.pie-legend-dot{width:6px;height:6px;border-radius:50%}
+.pie-legend-text{font-size:7px;color:rgba(255,255,255,0.7)}
+.pie-tooltip{position:absolute;background:rgba(0,0,0,0.9);color:#fff;padding:6px 10px;border-radius:8px;font-size:10px;font-weight:600;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;z-index:20;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1)}
+
+/* ===== SKILLS ===== */
+.skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
+.skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px}
+.skill-cat-title{font-size:16px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.skill-tags{display:flex;flex-wrap:wrap;gap:8px}
+.skill-tag{padding:8px 16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text-2);transition:all .2s;font-weight:500}
+.skill-tag:hover{border-color:var(--accent);color:var(--accent-l);background:rgba(99,102,241,0.1)}
+
+/* ===== CONTACT ===== */
+.contact{padding:128px 0;text-align:center;position:relative;overflow:hidden}
+.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(99,102,241,0.12) 0%,transparent 70%);pointer-events:none}
+.contact-inner{position:relative;z-index:1}
+.contact-title{font-size:48px;font-weight:900;letter-spacing:-0.02em;margin-bottom:16px}
+.contact-desc{font-size:17px;color:var(--text-2);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
+.contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
+.contact-link{display:flex;align-items:center;gap:10px;padding:16px 32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;font-size:15px;font-weight:600;color:var(--text);text-decoration:none;transition:all .25s}
+.contact-link:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 30px var(--accent-glow)}
+.contact-link .mono{font-size:14px}
+
+/* ===== FOOTER ===== */
+.footer{padding:32px 0;border-top:1px solid var(--border);text-align:center}
+.footer-text{font-size:13px;color:var(--text-4)}
+
+/* ===== REVEAL ===== */
+.reveal{opacity:0;transform:translateY(30px);transition:opacity .8s cubic-bezier(.16,1,.3,1),transform .8s cubic-bezier(.16,1,.3,1)}
+.reveal.visible{opacity:1;transform:translateY(0)}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:968px){
+  .hero h1{font-size:42px}
+  .hero-role{font-size:18px}
+  .hero-stats{grid-template-columns:repeat(2,1fr)}
+  .advantages-grid{grid-template-columns:1fr}
+  .edu-grid{grid-template-columns:1fr}
+  .projects-list{gap:80px}
+  .project-inner{grid-template-columns:1fr;gap:40px}
+  .project:nth-child(even) .project-inner{direction:ltr}
+  .project:nth-child(odd) .project-number,.project:nth-child(even) .project-number{left:-10px;right:auto;font-size:72px;top:-30px}
+  .project-visual{height:360px}
+  .project-title{font-size:26px}
+  .project-metrics{grid-template-columns:repeat(3,1fr)}
+  .skills-grid{grid-template-columns:1fr}
+  .section-title{font-size:30px}
+  .contact-title{font-size:34px}
+  .nav-links{display:none}
+}
+@media(max-width:640px){
+  .hero h1{font-size:34px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hero-stat-num{font-size:24px}
+  .project-metrics{grid-template-columns:1fr 1fr}
+  .container{padding:0 20px}
+  .nav-inner{padding:0 20px}
+  .project-visual{height:280px}
+  .project-number{font-size:56px!important;top:-24px!important}
+  .projects-list{gap:60px}
+  .project-title{font-size:22px}
+  .bento-img{border-radius:10px}
+  .bento-chip{font-size:10px!important;padding:5px 10px!important}
+}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#" class="nav-brand"><span class="nav-logo">W</span>汪星妤</a>
+    <div class="nav-links">
+      <a href="#about" class="nav-link">优势</a>
+      <a href="#experience" class="nav-link">经历</a>
+      <a href="#projects" class="nav-link">项目</a>
+      <a href="#skills" class="nav-link">技能</a>
+    </div>
+    <a href="#contact" class="nav-cta">联系我 →</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <div class="hero-bg">
+    <div class="hero-glow hero-glow-1"></div>
+    <div class="hero-glow hero-glow-2"></div>
+  </div>
+  <div class="container hero-content">
+    <div class="hero-badge reveal">
+      <span class="hero-badge-dot"></span>
+      2027届 · 商业运营 / 互联网运营
+    </div>
+    <h1 class="reveal">
+      用<span class="grad">数据驱动</span>业务增长<br>
+      以策略落地创造价值
+    </h1>
+    <p class="hero-role reveal">汪星妤 · 南京林业大学设计学硕士</p>
+    <p class="hero-desc reveal">
+      字节跳动商业运营实习生，专注销售激励、商家运营与电商增长。擅长将业务目标拆解为可执行策略，通过数据追踪与机制设计驱动团队行为与公司目标对齐。
+    </p>
+    <div class="hero-meta reveal">
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">PHONE</span>
+        <span class="hero-meta-value mono">18028367592</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">EMAIL</span>
+        <span class="hero-meta-value mono">18028367592@163.com</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">EDUCATION</span>
+        <span class="hero-meta-value">南京林业大学 · 硕士</span>
+      </div>
+      <div class="hero-meta-item">
+        <span class="hero-meta-label">STATUS</span>
+        <span class="hero-meta-value" style="color:var(--accent-3)">● 在职实习中</span>
+      </div>
+    </div>
+    <div class="hero-cta reveal">
+      <a href="#projects" class="btn-primary">
+        查看项目案例
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+      </a>
+      <a href="#contact" class="btn-secondary">获取联系方式</a>
+    </div>
+
+    <div class="hero-stats reveal">
+      <div class="hero-stat">
+        <div class="hero-stat-num">22.83亿</div>
+        <div class="hero-stat-label">项目累计贡献 GMV</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">+206%</div>
+        <div class="hero-stat-label">新开商家数增长</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">700+</div>
+        <div class="hero-stat-label">大型会务统筹人数</div>
+      </div>
+      <div class="hero-stat">
+        <div class="hero-stat-num">+26%</div>
+        <div class="hero-stat-label">电商转化率提升</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="about">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">CORE ADVANTAGES</span>
+      <h2 class="section-title">核心优势</h2>
+    </div>
+    <div class="advantages-grid">
+      <div class="adv-card reveal">
+        <div class="adv-icon adv-icon-1">🎯</div>
+        <h3 class="adv-title">销售运营与策略落地</h3>
+        <p class="adv-desc">擅长将业务目标拆解为可执行策略，精通销售激励设计、客开优化及全流程数据追踪，通过过程管理与激励机制驱动团队行为与公司目标对齐，曾推动核销与广告双指标增长。</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon adv-icon-2">📊</div>
+        <h3 class="adv-title">数据驱动的业务诊断</h3>
+        <p class="adv-desc">具备搭建数据看板、追踪核心指标（核销GMV、广告消耗、认领率等）的能力，能从波动中定位卡点并输出产品优化方案；主导问卷归因迭代，预计减少30%无效样本，每月节约10-15人时跨团队沟通成本。</p>
+      </div>
+      <div class="adv-card reveal">
+        <div class="adv-icon adv-icon-3">🛒</div>
+        <h3 class="adv-title">商家运营与电商增长</h3>
+        <p class="adv-desc">熟悉KA商家分层管理（NKA/CKA/SMB及P0-P2优先级），统筹700人大会商家信息协同，实现匹配错误率归零；同时具备天猫、京东等多平台运营经验，擅长品类规划、大促操盘及A/B测试。</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="education">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">EDUCATION</span>
+      <h2 class="section-title">教育背景</h2>
+    </div>
+    <div class="edu-grid">
+      <div class="edu-card reveal">
+        <div class="edu-logo">南林</div>
+        <div>
+          <div class="edu-school">南京林业大学</div>
+          <div class="edu-degree">设计学 · 硕士研究生</div>
+          <div class="edu-period">2024.09 — 2027.06</div>
+        </div>
+      </div>
+      <div class="edu-card reveal">
+        <div class="edu-logo" style="background:linear-gradient(135deg,#f472b6,#fb923c)">浙理</div>
+        <div>
+          <div class="edu-school">浙江理工大学</div>
+          <div class="edu-degree">设计学 · 本科学士</div>
+          <div class="edu-period">2020.09 — 2024.06</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="experience">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">EXPERIENCE</span>
+      <h2 class="section-title">实习经历</h2>
+    </div>
+    <div class="timeline">
+      <div class="tl-item reveal">
+        <div class="tl-dot"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div class="tl-company">字节跳动 <span class="tl-company-badge badge-bytedance">ByteDance</span></div>
+            <span class="tl-period">2026.05 — 至今</span>
+          </div>
+          <div class="tl-role">商业运营实习生</div>
+          <ul class="tl-list">
+            <li>追踪销售激励，<strong>核销完成率99-102%、广告106-123%</strong></li>
+            <li>优化客开机制，认领数增<strong>117%</strong>，贡献<strong>GMV 4518万</strong></li>
+            <li>统筹700人大会，多维表格实现<strong>零错误率</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot" style="border-color:var(--accent-2)"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div class="tl-company">Babycare <span class="tl-company-badge badge-babycare">电商</span></div>
+            <span class="tl-period">2026.01 — 2026.05</span>
+          </div>
+          <div class="tl-role">电商运营实习生</div>
+          <ul class="tl-list">
+            <li>分析差评驱动主图优化，<strong>转化率+26%，咨询-44%</strong></li>
+            <li>协同KOL直播，产出<strong>GMV 66万，利润率12%</strong></li>
+            <li>保障双平台日常运营<strong>零事故</strong></li>
+          </ul>
+        </div>
+      </div>
+      <div class="tl-item reveal">
+        <div class="tl-dot" style="border-color:var(--accent-4)"></div>
+        <div class="tl-card">
+          <div class="tl-header">
+            <div class="tl-company">孩子王 <span class="tl-company-badge badge-kidswant">母婴</span></div>
+            <span class="tl-period">2025.09 — 2025.11</span>
+          </div>
+          <div class="tl-role">品类运营实习生</div>
+          <ul class="tl-list">
+            <li>构建选品模型，大促<strong>纸尿裤+23%、纸品+34%，毛利率21.5%</strong></li>
+            <li>设计四层价格体系，<strong>客单价180→320元，连带率+28%</strong></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-alt" id="projects">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">PROJECT CASES</span>
+      <h2 class="section-title">项目案例</h2>
+      <p class="section-desc">8个核心项目，覆盖销售运营、电商增长、内容营销、产品迭代等领域，共58张真实作品图</p>
+    </div>
+    <div class="projects-list">
+
+      <div class="project project-v1 reveal">
+        <div class="project-number">01</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">01 / 08</span>
+              <span class="project-tag tag-1">字节跳动 · 会务运营</span>
+            </div>
+            <h3 class="project-title">抖音生活服务商家生态大会</h3>
+            <p class="project-subtitle">"用一张表管住700人——信息协同的效率，决定了大会执行的品质"</p>
+            <p class="project-desc">抖音上线"心动目的地"战略，在杭州举办文旅生态大会，邀约全国酒旅头部商家500家参会。搭建统一商家信息主表，以多维表格替代云文档，配置独立视图、操作日志、自动化规则，实现信息协同零错误。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num blue">4亿+</div>
+                <div class="metric-label">B端传播曝光</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num green">0%</div>
+                <div class="metric-label">信息匹配错误率</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num pink">4.8/5</div>
+                <div class="metric-label">商家满意度</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image10.png","image11.png","image12.png","image13.jpeg","image14.jpeg","image15.png","image9.png"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p1',0)"><img src="images/portfolio/image10.png" alt="生态大会主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p1',3)"><img src="images/portfolio/image13.jpeg" alt="大会现场" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p1',5)"><img src="images/portfolio/image15.png" alt="数据展示" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-chip">现场统筹 · 700人</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project project-v2 reveal">
+        <div class="project-number">02</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">02 / 08</span>
+              <span class="project-tag tag-3">字节跳动 · 销售运营</span>
+            </div>
+            <h3 class="project-title">"新开百万"销售激励项目</h3>
+            <p class="project-subtitle">"资源集中度，决定了增长的加速度"</p>
+            <p class="project-desc">游玩行业KA团队启动"新开百万"项目，推动销售从"单纯拉新"转向"带出高质量新开商家"。搭建S/A/B三级销售识别体系、P0/P1/P2公海商家联动机制、三类定制化权益与月度PK闭环，4个月累计覆盖662家新开百万商家。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num green">+206%</div>
+                <div class="metric-label">商家数 83→254家</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num blue">+236%</div>
+                <div class="metric-label">GMV 2.61→8.76亿</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num gold">22.83亿</div>
+                <div class="metric-label">4个月累计GMV</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image16.png","image17.png","image18.jpeg","image19.png","image20.jpeg","image21.jpeg"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p2',0)"><img src="images/portfolio/image16.png" alt="新开百万主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p2',2)"><img src="images/portfolio/image18.jpeg" alt="激励数据" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p2',3)"><img src="images/portfolio/image19.png" alt="增长趋势" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-chip">销售增长 · +236%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project project-v3 reveal">
+        <div class="project-number">03</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">03 / 08</span>
+              <span class="project-tag tag-2">Babycare · 电商运营</span>
+            </div>
+            <h3 class="project-title">童装亲子专场达播矩阵</h3>
+            <p class="project-desc">大促前以"亲子专场"切入童装类目，采用"超头引爆+KOL矩阵承接"策略：超头负责"爆"，用新品灯笼裤快速起量；KOL负责"稳"，矩阵化投放覆盖不同圈层。差异化物料准备，200+条短视频统一审核管控。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num pink">66万</div>
+                <div class="metric-label">总GMV产出</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num green">12%+</div>
+                <div class="metric-label">利润率</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num blue">32场</div>
+                <div class="metric-label">直播场次</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image24.png","image25.png","image22.jpeg","image23.jpeg","image26.jpeg","image27.jpeg","image28.png","image29.png"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p3',0)"><img src="images/portfolio/image24.png" alt="达播矩阵主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p3',1)"><img src="images/portfolio/image25.png" alt="直播数据" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p3',6)"><img src="images/portfolio/image28.png" alt="直播间" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-chip">达播矩阵 · 66万GMV</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project project-v4 reveal">
+        <div class="project-number">04</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">04 / 08</span>
+              <span class="project-tag tag-1">Babycare · 用户洞察</span>
+            </div>
+            <h3 class="project-title">春季爬服上市差评优化</h3>
+            <p class="project-subtitle">"42%的差评，不是产品的问题，是表达的问题"</p>
+            <p class="project-desc">春季新款婴儿爬服创新采用"分阶设计"但转化率低于预期。采集327条评价+89条客服记录，定向问卷214份定位根因（仅18%用户知道分阶设计），跨部门推动主图、详情页、标题视觉优化。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num green">+26%</div>
+                <div class="metric-label">支付转化率</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num blue">+59%</div>
+                <div class="metric-label">详情页停留时长</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num pink">-44%</div>
+                <div class="metric-label">客服咨询量</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image35.png","image30.png","image31.jpeg","image32.jpeg","image33.jpeg","image34.jpeg","image36.png"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p4',0)"><img src="images/portfolio/image35.png" alt="差评优化主图" loading="lazy"><div class="bento-overlay"></div></div>
+
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p4',1)"><img src="images/portfolio/image30.png" alt="详情页优化" loading="lazy"><div class="bento-overlay"></div></div>
+
+              <div class="pie-chart-wrap bento-sub1" style="width:33%;height:38%;bottom:10%;left:0;transform:rotate(3deg)" data-pie="p4">
+                <div class="pie-title">差评原因分布</div>
+                <div class="pie-subtitle">n=327 条评价分析</div>
+                <svg class="pie-svg" viewBox="0 0 120 120" id="pie-svg-p4">
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="22"/>
+                  <g id="pie-segments-p4"></g>
+                  <circle cx="60" cy="60" r="28" fill="#1a1a2e"/>
+                  <text class="pie-center-text" id="pie-center-pct-p4" x="60" y="58">42%</text>
+                  <text class="pie-center-label" id="pie-center-label-p4" x="60" y="72">核心问题</text>
+                </svg>
+                <div class="pie-legend" id="pie-legend-p4"></div>
+                <div class="pie-tooltip" id="pie-tooltip-p4"></div>
+              </div>
+
+              <div class="bento-chip">转化率 · +26%</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project project-v5 reveal">
+        <div class="project-number">05</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">05 / 08</span>
+              <span class="project-tag tag-3">通垦科技 · 产品运营</span>
+            </div>
+            <h3 class="project-title">会话智能AI产品迭代</h3>
+            <p class="project-subtitle">从"技术导向"到"业务导向"的用户驱动型产品重塑</p>
+            <p class="project-desc">针对销售画像"不够精准"、报表"太技术化"、培训60%时间花在教操作等问题，深度访谈25人+现场跟岗+行为数据分析，主导界面重构PRD撰写，用调研数据打破主观判断，组织共创Workshop替代评审会。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num green">1000+</div>
+                <div class="metric-label">全国门店扩展(从200+)</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num blue">-30%</div>
+                <div class="metric-label">客户培训时长</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num pink">SOP</div>
+                <div class="metric-label">沉淀为迭代标准</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image37.png","image38.jpeg","image39.png","image40.png","image41.jpeg","image42.jpeg","image43.png"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p5',0)"><img src="images/portfolio/image37.png" alt="AI产品迭代主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p5',2)"><img src="images/portfolio/image39.png" alt="产品界面" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p5',6)"><img src="images/portfolio/image43.png" alt="迭代成果" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-chip">产品迭代 · 1000+门店</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project project-v6 reveal">
+        <div class="project-number">06</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">06 / 08</span>
+              <span class="project-tag tag-4">孩子王 · 品类运营</span>
+            </div>
+            <h3 class="project-title">双十一纸品选品与品类优化</h3>
+            <p class="project-desc">针对纸品单价低、利润薄、销量上不去的问题，搭建金字塔选品模型（引流款/主推款/利润款），按双十一节奏设计预热期-爆发期-返场期价格与促销机制，推出1元秒杀带动全店访客，组合装拉升客单价。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num gold">+120%</div>
+                <div class="metric-label">全店访客环比</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num green">45→73%</div>
+                <div class="metric-label">连带率提升</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num blue">+89%</div>
+                <div class="metric-label">自有品牌同比</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image45.png","image47.png","image44.png","image46.png","image48.png","image49.png","image50.png","image51.png"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p6',0)"><img src="images/portfolio/image45.png" alt="双11选品主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p6',1)"><img src="images/portfolio/image47.png" alt="选品模型" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p6',2)"><img src="images/portfolio/image44.png" alt="销售数据" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-chip">双11大促 · 客单价180→320</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project project-v7 reveal">
+        <div class="project-number">07</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">07 / 08</span>
+              <span class="project-tag tag-2">不息 · 内容营销</span>
+            </div>
+            <h3 class="project-title">卫龙小红书达人种草全案</h3>
+            <p class="project-desc">紧扣卫龙"年轻化社交货币"定位，聚焦猎奇-场景-情怀三大方向，搭建金字塔达人矩阵（头部3人+腰部10人+尾部30人+素人100人），预算15.3万。建立标准化审核SOP与双返点机制，素人置换+精准投流控制成本。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num pink">1280万</div>
+                <div class="metric-label">总曝光量 +28%</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num blue">41.6万</div>
+                <div class="metric-label">总互动 +39%</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num gold">22%</div>
+                <div class="metric-label">爆文率 +47%</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image52.png","image53.png","image54.png","image55.png","image56.png","image57.png"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p7',0)"><img src="images/portfolio/image52.png" alt="卫龙种草主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p7',3)"><img src="images/portfolio/image55.png" alt="笔记内容" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p7',1)"><img src="images/portfolio/image53.png" alt="数据看板" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-chip">小红书种草 · 1280万曝光</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="project project-v8 reveal">
+        <div class="project-number">08</div>
+        <div class="project-inner">
+          <div class="project-content">
+            <div class="project-meta">
+              <span class="project-index">08 / 08</span>
+              <span class="project-tag tag-3">美那友 Minayo · 新媒体</span>
+            </div>
+            <h3 class="project-title">小红书企业号运营破局</h3>
+            <p class="project-subtitle">从蓝V限流到爆款内容破局</p>
+            <p class="project-desc">新式营养品牌企业号面临蓝V限流（首页推荐不足20%）、功能性产品不能直宣功效、5条产品线目标人群各异三大难题。采用知识科普卡片动画图文破解限流、时间测试法找到"爆款时刻"、70%干货+30%转化系统性运营。</p>
+            <div class="project-metrics">
+              <div class="metric">
+                <div class="metric-num green">+70%</div>
+                <div class="metric-label">月均自然曝光</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num pink">+280%</div>
+                <div class="metric-label">笔记平均互动率</div>
+              </div>
+              <div class="metric">
+                <div class="metric-num blue">+110%</div>
+                <div class="metric-label">粉丝月均增长</div>
+              </div>
+            </div>
+          </div>
+          <div class="project-visual" data-images='["image66.png","image58.jpeg","image59.jpeg","image60.jpeg","image61.jpeg","image62.jpeg","image63.jpeg","image64.jpeg","image65.png"]'>
+            <div class="bento-grid">
+              <div class="bento-img bento-main" onclick="openLightboxAt('p8',0)"><img src="images/portfolio/image66.png" alt="Minayo运营主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p8',8)"><img src="images/portfolio/image65.png" alt="数据增长" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p8',1)"><img src="images/portfolio/image58.jpeg" alt="笔记作品" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-chip">企业号增长 · +280%互动</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section class="section" id="skills">
+  <div class="container">
+    <div class="section-header reveal">
+      <span class="section-label">SKILLS</span>
+      <h2 class="section-title">技能专长</h2>
+    </div>
+    <div class="skills-grid">
+      <div class="skill-cat reveal">
+        <div class="skill-cat-title">🎯 运营能力</div>
+        <div class="skill-tags">
+          <span class="skill-tag">销售激励设计</span>
+          <span class="skill-tag">商家分层运营</span>
+          <span class="skill-tag">电商大促操盘</span>
+          <span class="skill-tag">品类规划</span>
+          <span class="skill-tag">A/B测试</span>
+          <span class="skill-tag">用户调研</span>
+          <span class="skill-tag">内容种草</span>
+          <span class="skill-tag">达人矩阵</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-title">📊 数据与工具</div>
+        <div class="skill-tags">
+          <span class="skill-tag">数据看板搭建</span>
+          <span class="skill-tag">多维表格</span>
+          <span class="skill-tag">Excel数据分析</span>
+          <span class="skill-tag">问卷归因</span>
+          <span class="skill-tag">PRD撰写</span>
+          <span class="skill-tag">飞书</span>
+          <span class="skill-tag">Notion</span>
+          <span class="skill-tag">千瓜/新红</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-title">🎨 设计与表达</div>
+        <div class="skill-tags">
+          <span class="skill-tag">Photoshop</span>
+          <span class="skill-tag">视觉设计</span>
+          <span class="skill-tag">品牌调性</span>
+          <span class="skill-tag">文案撰写</span>
+          <span class="skill-tag">跨部门沟通</span>
+          <span class="skill-tag">共创Workshop</span>
+        </div>
+      </div>
+      <div class="skill-cat reveal">
+        <div class="skill-cat-title">💡 业务领域</div>
+        <div class="skill-tags">
+          <span class="skill-tag">本地生活</span>
+          <span class="skill-tag">酒旅KA</span>
+          <span class="skill-tag">母婴电商</span>
+          <span class="skill-tag">小红书运营</span>
+          <span class="skill-tag">抖音生态</span>
+          <span class="skill-tag">天猫/京东</span>
+          <span class="skill-tag">AI SaaS</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="contact-bg"></div>
+  <div class="container contact-inner">
+    <span class="section-label reveal" style="display:block">GET IN TOUCH</span>
+    <h2 class="contact-title reveal">期待与您聊聊</h2>
+    <p class="contact-desc reveal">
+      如果我的经历与您的招聘需求匹配，欢迎通过以下方式联系我，我会尽快回复！
+    </p>
+    <div class="contact-links reveal">
+      <a href="tel:18028367592" class="contact-link">
+        📱 <span class="mono">18028367592</span>
+      </a>
+      <a href="mailto:18028367592@163.com" class="contact-link">
+        ✉️ <span class="mono">18028367592@163.com</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <p class="footer-text">© 2026 汪星妤 · 商业运营作品集 · Designed with care</p>
+  </div>
+</footer>
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+  <button class="lightbox-close" onclick="closeLightbox()">✕</button>
+  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1);event.stopPropagation()">‹</button>
+  <img class="lightbox-img" id="lightbox-img" src="">
+  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1);event.stopPropagation()">›</button>
+  <div class="lightbox-counter" id="lightbox-counter"></div>
+</div>
+
+<script>
+const observer=new IntersectionObserver((entries)=>{entries.forEach((e,i)=>{if(e.isIntersecting){setTimeout(()=>e.target.classList.add('visible'),e.target.dataset.delay||0)}})},{threshold:0.06,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.reveal').forEach((el,i)=>{el.dataset.delay=i*60;observer.observe(el)});
+document.querySelectorAll('a[href^="#"]').forEach(a=>{a.addEventListener('click',function(e){const id=this.getAttribute('href');if(id==='#')return;const t=document.querySelector(id);if(t){e.preventDefault();t.scrollIntoView({behavior:'smooth',block:'start'})}})});
+
+const galleries={
+  'p1':['image10.png','image11.png','image12.png','image13.jpeg','image14.jpeg','image15.png','image9.png'],
+  'p2':['image16.png','image17.png','image18.jpeg','image19.png','image20.jpeg','image21.jpeg'],
+  'p3':['image24.png','image25.png','image22.jpeg','image23.jpeg','image26.jpeg','image27.jpeg','image28.png','image29.png'],
+  'p4':['image35.png','image30.png','image31.jpeg','image32.jpeg','image33.jpeg','image34.jpeg','image36.png'],
+  'p5':['image37.png','image38.jpeg','image39.png','image40.png','image41.jpeg','image42.jpeg','image43.png'],
+  'p6':['image45.png','image47.png','image44.png','image46.png','image48.png','image49.png','image50.png','image51.png'],
+  'p7':['image52.png','image53.png','image54.png','image55.png','image56.png','image57.png'],
+  'p8':['image66.png','image58.jpeg','image59.jpeg','image60.jpeg','image61.jpeg','image62.jpeg','image63.jpeg','image64.jpeg','image65.png']
+};
+const galleryKeys=Object.keys(galleries);
+
+let currentGal=null;
+let currentIdx=0;
+
+function openLightboxAt(gid,idx){
+  currentGal=gid;
+  currentIdx=idx;
+  document.getElementById('lightbox').classList.add('open');
+  document.body.style.overflow='hidden';
+  updateLightbox();
+}
+function closeLightbox(e){
+  if(e&&e.target!==e.currentTarget&&!e.target.classList.contains('lightbox-close'))return;
+  document.getElementById('lightbox').classList.remove('open');
+  document.body.style.overflow='';
+}
+function navLightbox(dir){
+  const imgs=galleries[currentGal];
+  currentIdx=((currentIdx+dir)%imgs.length+imgs.length)%imgs.length;
+  updateLightbox();
+}
+function updateLightbox(){
+  const imgs=galleries[currentGal];
+  const img=document.getElementById('lightbox-img');
+  img.style.opacity=0;
+  setTimeout(()=>{
+    img.src='images/portfolio/'+imgs[currentIdx];
+    img.onload=()=>{img.style.opacity=1};
+  },150);
+  document.getElementById('lightbox-counter').textContent=(currentIdx+1)+' / '+imgs.length;
+}
+document.addEventListener('keydown',function(e){
+  if(!document.getElementById('lightbox').classList.contains('open'))return;
+  if(e.key==='Escape')closeLightbox();
+  if(e.key==='ArrowLeft')navLightbox(-1);
+  if(e.key==='ArrowRight')navLightbox(1);
+});
+
+document.querySelectorAll('.bento-img').forEach(img=>{
+  let baseTransform='';
+  if(img.classList.contains('bento-main')){
+    const parent=img.closest('.project-visual');
+    const pClass=Array.from(parent.parentElement.classList).find(c=>c.startsWith('project-v'));
+    const rotations={'project-v1':'rotate(-2deg)','project-v2':'rotate(2.5deg)','project-v3':'rotate(-1.5deg)','project-v4':'rotate(2deg)','project-v5':'rotate(-2.5deg)','project-v6':'rotate(1.5deg)','project-v7':'rotate(2deg)','project-v8':'rotate(-2deg)'};
+    baseTransform=rotations[pClass]||'';
+  }else if(img.classList.contains('bento-sub1')){
+    const parent=img.closest('.project-visual');
+    const pClass=Array.from(parent.parentElement.classList).find(c=>c.startsWith('project-v'));
+    const rotations={'project-v1':'rotate(3deg)','project-v2':'rotate(-3deg)','project-v3':'rotate(2deg)','project-v4':'rotate(-2deg)','project-v5':'rotate(3deg)','project-v6':'rotate(-3deg)','project-v7':'rotate(-2.5deg)','project-v8':'rotate(3deg)'};
+    baseTransform=rotations[pClass]||'';
+  }else if(img.classList.contains('bento-sub2')){
+    const parent=img.closest('.project-visual');
+    const pClass=Array.from(parent.parentElement.classList).find(c=>c.startsWith('project-v'));
+    const rotations={'project-v1':'rotate(-1.5deg)','project-v2':'rotate(1deg)','project-v3':'rotate(-2.5deg)','project-v4':'rotate(3deg)','project-v5':'rotate(-1deg)','project-v6':'rotate(2deg)','project-v7':'rotate(1.5deg)','project-v8':'rotate(-1deg)'};
+    baseTransform=rotations[pClass]||'';
+  }
+  img.addEventListener('mousemove',function(e){
+    const rect=this.getBoundingClientRect();
+    const x=(e.clientX-rect.left)/rect.width-0.5;
+    const y=(e.clientY-rect.top)/rect.height-0.5;
+    this.style.transform='rotate(0deg) translate('+x*-10+'px,'+y*-10+'px) scale(1.03)';
+    this.style.zIndex=10;
+  });
+  img.addEventListener('mouseleave',function(){
+    this.style.transform=baseTransform;
+    this.style.zIndex='';
+  });
+});
+
+document.querySelectorAll('.metric').forEach(m=>{
+  m.addEventListener('mousemove',function(e){
+    const rect=this.getBoundingClientRect();
+    const x=(e.clientX-rect.left)/rect.width-0.5;
+    const y=(e.clientY-rect.top)/rect.height-0.5;
+    this.style.transform='translateY(-4px) perspective(600px) rotateY('+x*8+'deg) rotateX('+y*-6+'deg)';
+  });
+  m.addEventListener('mouseleave',function(){this.style.transform=''});
+});
+
+document.querySelectorAll('.contact-link').forEach(link=>{
+  link.addEventListener('mousemove',function(e){
+    const rect=this.getBoundingClientRect();
+    const x=e.clientX-(rect.left+rect.width/2);
+    const y=e.clientY-(rect.top+rect.height/2);
+    this.style.transform='translate('+x*0.15+'px,'+(y*0.15-3)+'px)';
+  });
+  link.addEventListener('mouseleave',function(){this.style.transform=''});
+});
+
+const heroH1=document.querySelector('.hero h1');
+if(heroH1){
+  document.addEventListener('mousemove',function(e){
+    if(window.scrollY<window.innerHeight){
+      const x=(e.clientX/window.innerWidth-0.5)*6;
+      const y=(e.clientY/window.innerHeight-0.5)*4;
+      heroH1.style.transform='translate('+x+'px,'+y+'px)';
+    }
+  });
+}
+
+document.querySelectorAll('.project-number').forEach(n=>{n.style.transition='transform .6s cubic-bezier(.2,.8,.2,1)'});
+
+/* ===== Pie Chart Rendering ===== */
+function renderPie(containerId,data){
+  const cx=60,cy=60,R=50,r=28;
+  const svg=document.getElementById('pie-svg-'+containerId);
+  const segG=document.getElementById('pie-segments-'+containerId);
+  const legendG=document.getElementById('pie-legend-'+containerId);
+  const centerPct=document.getElementById('pie-center-pct-'+containerId);
+  const centerLbl=document.getElementById('pie-center-label-'+containerId);
+  const tooltip=document.getElementById('pie-tooltip-'+containerId);
+  const wrap=svg.closest('.pie-chart-wrap');
+  if(!segG)return;
+  const total=data.reduce((s,d)=>s+d.pct,0);
+  let angle=-90;
+  data.forEach((d,i)=>{
+    const a=d.pct/total*360;
+    const startAngle=angle;
+    const endAngle=angle+a;
+    const largeArc=a>180?1:0;
+    const x1=cx+R*Math.cos(startAngle*Math.PI/180);
+    const y1=cy+R*Math.sin(startAngle*Math.PI/180);
+    const x2=cx+R*Math.cos(endAngle*Math.PI/180);
+    const y2=cy+R*Math.sin(endAngle*Math.PI/180);
+    const path=document.createElementNS('http://www.w3.org/2000/svg','path');
+    path.setAttribute('d',`M${x1} ${y1} A${R} ${R} 0 ${largeArc} 1 ${x2} ${y2} L${cx} ${cy} Z`);
+    path.setAttribute('fill',d.color);
+    path.setAttribute('class','pie-segment');
+    path.setAttribute('data-pct',d.pct);
+    path.setAttribute('data-label',d.label);
+    segG.appendChild(path);
+    angle=endAngle;
+    const leg=document.createElement('div');
+    leg.className='pie-legend-item';
+    leg.innerHTML=`<div class="pie-legend-dot" style="background:${d.color}"></div><span class="pie-legend-text">${d.short||d.label}</span>`;
+    legendG.appendChild(leg);
+    path.addEventListener('mouseenter',function(e){
+      centerPct.textContent=d.pct+'%';
+      centerLbl.textContent=d.label;
+      tooltip.textContent=d.label+': '+d.pct+'%';
+      tooltip.style.opacity=1;
+    });
+    path.addEventListener('mousemove',function(e){
+      const rect=wrap.getBoundingClientRect();
+      tooltip.style.left=(e.clientX-rect.left+10)+'px';
+      tooltip.style.top=(e.clientY-rect.top-30)+'px';
+    });
+    path.addEventListener('mouseleave',function(){
+      centerPct.textContent=data[0].pct+'%';
+      centerLbl.textContent='核心问题';
+      tooltip.style.opacity=0;
+    });
+  });
+}
+renderPie('p4',[
+  {pct:42,label:'分阶认知不清',color:'#FF6B6B',short:'分阶'},
+  {pct:23,label:'尺码预期不符',color:'#FFB347',short:'尺码'},
+  {pct:15,label:'颜色款式差异',color:'#FFD93D',short:'颜色'},
+  {pct:12,label:'面料质感问题',color:'#6BCB77',short:'面料'},
+  {pct:8,label:'其他原因',color:'#4D96FF',short:'其他'}
+]);
+
+document.querySelectorAll('.pie-chart-wrap').forEach(wrap=>{
+  wrap.addEventListener('mousemove',function(e){
+    const rect=this.getBoundingClientRect();
+    const x=(e.clientX-rect.left)/rect.width-0.5;
+    const y=(e.clientY-rect.top)/rect.height-0.5;
+    this.style.transform='rotate(0deg) translate('+x*-10+'px,'+y*-10+'px) scale(1.04)';
+    this.style.zIndex=10;
+  });
+  wrap.addEventListener('mouseleave',function(){
+    const baseRot=this.classList.contains('bento-sub1')?'3deg':'';
+    this.style.transform='';
+    this.style.zIndex='';
+  });
+});
+</script>
+</body>
+</html>
