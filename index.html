@@ -406,7 +406,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
     padding:6px 12px!important;
   }
   .bento-grid .bento-overlay{display:none}
-  .bento-grid .resize-handle{display:none!important}
   .skills-grid{gap:14px}
   .skill-card{padding:22px;border-radius:14px}
   .skill-cat{font-size:11px;margin-bottom:12px}
@@ -424,61 +423,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   .footer p{font-size:12px}
   .footer-links{gap:16px}
   .footer-links a{font-size:12px}
-  .edit-fab{bottom:16px;right:16px}
-  .edit-fab button{padding:10px 16px;font-size:12px}
   .lightbox-img{max-width:95vw;max-height:80vh;border-radius:12px}
   .lightbox-close{top:16px;right:16px;width:36px;height:36px;font-size:20px}
 }
 
-/* ===== VISUAL EDITOR ===== */
-.edit-fab{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
-.edit-fab button{border:none;border-radius:12px;padding:12px 20px;font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
-.edit-fab .fab-toggle{background:linear-gradient(135deg,#5B5BD6,#8B5CF6);color:#fff}
-.edit-fab .fab-toggle:hover{transform:scale(1.05);box-shadow:0 6px 30px rgba(91,91,214,0.5)}
-.edit-fab .fab-tools{display:none;flex-direction:column;gap:8px}
-.edit-fab.active .fab-tools{display:flex}
-.edit-fab .fab-tool{background:rgba(255,255,255,0.98);color:var(--text);backdrop-filter:blur(12px);border:1px solid var(--border);box-shadow:var(--shadow)}
-.edit-fab .fab-tool:hover{background:rgba(245,245,245,0.98);transform:translateX(-4px);box-shadow:var(--shadow-lg)}
-.edit-fab .fab-save{background:linear-gradient(135deg,#10B981,#059669);color:#fff;border:none}
-.edit-fab .fab-save:hover{box-shadow:0 6px 20px rgba(16,185,129,0.3)}
-.edit-fab .fab-reset{background:rgba(255,255,255,0.98);color:#EF4444;border:1px solid rgba(239,68,68,0.2)}
-.edit-fab .fab-reset:hover{background:rgba(254,242,242,0.98)}
-body.edit-mode .bento-img{cursor:grab;outline:2px dashed rgba(91,91,214,0.4);outline-offset:4px}
-body.edit-mode .bento-img:active{cursor:grabbing}
-body.edit-mode .bento-img.dragging{opacity:0.4;transform:scale(0.95)}
-body.edit-mode .bento-img.drag-over{outline:3px solid var(--accent);outline-offset:4px;box-shadow:0 0 30px rgba(91,91,214,0.2)}
-body.edit-mode .bento-img.free-move{cursor:move;z-index:50;position:absolute}
-body.edit-mode .bento-img.free-move:active{cursor:grabbing}
-.resize-handle{display:none;position:absolute;bottom:-4px;right:-4px;width:20px;height:20px;background:var(--accent);border:3px solid #fff;border-radius:50%;cursor:nwse-resize;z-index:100;box-shadow:0 2px 8px rgba(91,91,214,0.4);transition:transform .15s}
-.resize-handle:hover{transform:scale(1.2);background:var(--accent-l)}
-body.edit-mode .resize-handle{display:block}
-.resize-handle::after{content:'';position:absolute;bottom:3px;right:3px;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;border-radius:0 0 2px 0}
-body.edit-mode .bento-img.resizing{user-select:none;opacity:0.8;z-index:100}
-body.edit-mode .project-title,
-body.edit-mode .project-subtitle,
-body.edit-mode .bs-text,
-body.edit-mode .metric-num,
-body.edit-mode .metric-label,
-body.edit-mode .hero-title,
-body.edit-mode .hero-sub,
-body.edit-mode .stat-num,
-body.edit-mode .stat-label,
-body.edit-mode .section-title{cursor:text;outline:2px dashed rgba(16,185,129,0.4);outline-offset:3px;transition:outline-color .2s}
-body.edit-mode .project-title:hover,
-body.edit-mode .project-subtitle:hover,
-body.edit-mode .bs-text:hover,
-body.edit-mode .metric-num:hover,
-body.edit-mode .metric-label:hover,
-body.edit-mode .hero-title:hover,
-body.edit-mode .hero-sub:hover,
-body.edit-mode .stat-num:hover,
-body.edit-mode .stat-label:hover,
-body.edit-mode .section-title:hover{outline-color:rgba(16,185,129,0.8)}
-.edit-indicator{position:fixed;top:0;left:0;right:0;background:linear-gradient(90deg,#5B5BD6,#8B5CF6);color:#fff;text-align:center;padding:8px;font-size:12px;font-weight:600;font-family:var(--mono);z-index:9998;transform:translateY(-100%);transition:transform .3s}
-body.edit-mode .edit-indicator{transform:translateY(0)}
-.inline-editor{background:#fff;color:var(--text);border:2px solid var(--accent);border-radius:12px;padding:12px 16px;font-size:inherit;font-family:inherit;line-height:inherit;width:100%;min-width:200px;outline:none;box-shadow:0 8px 40px rgba(91,91,214,0.2);resize:vertical}
-.drag-ghost{position:fixed;pointer-events:none;z-index:10000;opacity:0.85;transform:rotate(3deg) scale(0.8);box-shadow:0 20px 60px rgba(0,0,0,0.5);border-radius:16px;overflow:hidden}
-.drag-ghost img{width:200px;height:auto;display:block}
 </style>
 </head>
 <body>
@@ -715,11 +663,11 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["p1-beijing.jpg.png","p1-guangzhou.jpg.png","p1-seating.jpg.png","image13.jpeg","image15.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p1',1)"><img src="images/portfolio/p1-beijing.jpg.png" alt="北京心动好乐Day" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p1',2)"><img src="images/portfolio/p1-guangzhou.jpg.png" alt="广州心动好乐Day" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-main" onclick="openLightboxAt('p1',0)"><img src="images/portfolio/p1-seating.jpg.png" alt="700人大会座位平面图" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub3" onclick="openLightboxAt('p1',3)"><img src="images/portfolio/image13.jpeg" alt="大会现场" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub4" onclick="openLightboxAt('p1',4)"><img src="images/portfolio/image15.png" alt="数据展示" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p1',1)"><img src="images/portfolio/p1-beijing.jpg.png" alt="北京心动好乐Day" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p1',2)"><img src="images/portfolio/p1-guangzhou.jpg.png" alt="广州心动好乐Day" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p1',0)"><img src="images/portfolio/p1-seating.jpg.png" alt="700人大会座位平面图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p1',3)"><img src="images/portfolio/image13.jpeg" alt="大会现场" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p1',4)"><img src="images/portfolio/image15.png" alt="数据展示" loading="lazy"><div class="bento-overlay"></div></div>
               <div class="bento-chip">700人统筹 · 4亿曝光</div>
             </div>
           </div>
@@ -767,10 +715,10 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["image20.jpeg","image18.jpeg","image19.png","image21.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p2',0)" style="width: 209.284px; height: 434.252px;top:66.484px;left:177.69px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image20.jpeg" alt="新开百万增长数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p2',1)"><img src="images/portfolio/image18.jpeg" alt="销售激励数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p2',2)"><img src="images/portfolio/image19.png" alt="商家增长趋势" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub3" onclick="openLightboxAt('p2',3)" style="width: 109.91px; height: 202.6px;top:65.5988px;left:402.69px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image21.jpeg" alt="运营策略说明" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p2',0)" style="width: 209.284px; height: 434.252px;top:66.484px;left:177.69px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image20.jpeg" alt="新开百万增长数据" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p2',1)"><img src="images/portfolio/image18.jpeg" alt="销售激励数据" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p2',2)"><img src="images/portfolio/image19.png" alt="商家增长趋势" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p2',3)" style="width: 109.91px; height: 202.6px;top:65.5988px;left:402.69px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image21.jpeg" alt="运营策略说明" loading="lazy"><div class="bento-overlay"></div></div>
               <div class="bento-chip">商家+206% · GMV+236%</div>
             </div>
           </div>
@@ -817,11 +765,11 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["image26.jpeg","image25.png","image28.png","image24.png","image27.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p3',1)"><img src="images/portfolio/image26.jpeg" alt="直播带货1" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p3',3)"><img src="images/portfolio/image25.png" alt="直播数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p3',4)"><img src="images/portfolio/image28.png" alt="直播间" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub3" onclick="openLightboxAt('p3',0)"><img src="images/portfolio/image24.png" alt="达播矩阵主图" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub4" onclick="openLightboxAt('p3',2)" style="width: 97.7646px; height: 176.491px;top:303.067px;left:418.688px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image27.jpeg" alt="直播带货2" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p3',1)"><img src="images/portfolio/image26.jpeg" alt="直播带货1" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p3',3)"><img src="images/portfolio/image25.png" alt="直播数据" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p3',4)"><img src="images/portfolio/image28.png" alt="直播间" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p3',0)"><img src="images/portfolio/image24.png" alt="达播矩阵主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p3',2)" style="width: 97.7646px; height: 176.491px;top:303.067px;left:418.688px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image27.jpeg" alt="直播带货2" loading="lazy"><div class="bento-overlay"></div></div>
               <div class="bento-chip">32场直播 · 66万GMV</div>
             </div>
           </div>
@@ -869,9 +817,9 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["image70.png","p4-main.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p4',1)" style="width: 393.764px; height: 264.357px;top:105.486px;left:191.883px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image70.png" alt="优化后页面" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p4',1)" style="width: 393.764px; height: 264.357px;top:105.486px;left:191.883px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image70.png" alt="优化后页面" loading="lazy"><div class="bento-overlay"></div></div>
 
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p4',0)" style="width: 144.15px; height: 280.528px;top:-48.5787px;left:53.1131px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/p4-main.png" alt="爬服差评优化主图" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p4',0)" style="width: 144.15px; height: 280.528px;top:-48.5787px;left:53.1131px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/p4-main.png" alt="爬服差评优化主图" loading="lazy"><div class="bento-overlay"></div></div>
 
               <div class="pie-chart-wrap bento-sub1" data-pie="p4" style="width: 30%; height: 45%; bottom: 5%; left: 0px;right:auto">
                 <div class="pie-title">差评原因分布</div>
@@ -934,11 +882,11 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["image39.png","image40.png","image38.jpeg","image41.jpeg","image42.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p5',0)" style="width: 377.347px; height: 270.123px;top:94.2527px;left:113.654px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image39.png" alt="AI产品界面" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p5',1)" style="top:12px;left:430px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image40.png" alt="产品迭代成果" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p5',2)" style="width: 302.121px; height: 125.229px;top:345.994px;left:231.079px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image38.jpeg" alt="用户调研" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub3" onclick="openLightboxAt('p5',3)" style="width: 158.822px; height: 94.4224px;top:50.5845px;left:-1.74835px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image41.jpeg" alt="Workshop共创" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub4" onclick="openLightboxAt('p5',4)" style="width: 162.728px; height: 133.637px;top:157.403px;left:-5.4149px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image42.jpeg" alt="产品原型" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p5',0)" style="width: 377.347px; height: 270.123px;top:94.2527px;left:113.654px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image39.png" alt="AI产品界面" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p5',1)" style="top:12px;left:430px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image40.png" alt="产品迭代成果" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p5',2)" style="width: 302.121px; height: 125.229px;top:345.994px;left:231.079px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image38.jpeg" alt="用户调研" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p5',3)" style="width: 158.822px; height: 94.4224px;top:50.5845px;left:-1.74835px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image41.jpeg" alt="Workshop共创" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p5',4)" style="width: 162.728px; height: 133.637px;top:157.403px;left:-5.4149px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image42.jpeg" alt="产品原型" loading="lazy"><div class="bento-overlay"></div></div>
               <div class="bento-chip">200→1000+门店 · -30%培训时长</div>
             </div>
           </div>
@@ -985,11 +933,11 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["image45.png","image47.png","image46.png","image48.png","image49.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p6',1)" style="width: 172.496px; height: 364.701px;top:35.262px;left:167.936px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image45.png" alt="双11促销活动" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p6',0)" style="width: 167.145px; height: 256.523px;top:236.795px;left:-7.0632px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image47.png" alt="金字塔选品模型" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p6',2)" style="width: 159.087px; height: 129.758px;top:3.2002px;left:375.445px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image46.png" alt="促销价格体系" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub3" onclick="openLightboxAt('p6',3)" style="width: 175px; height: 262.357px;top:220.15px;left:364.102px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image48.png" alt="1元秒杀活动" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub4" onclick="openLightboxAt('p6',4)"><img src="images/portfolio/image49.png" alt="组合销售数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p6',1)" style="width: 172.496px; height: 364.701px;top:35.262px;left:167.936px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image45.png" alt="双11促销活动" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p6',0)" style="width: 167.145px; height: 256.523px;top:236.795px;left:-7.0632px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image47.png" alt="金字塔选品模型" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p6',2)" style="width: 159.087px; height: 129.758px;top:3.2002px;left:375.445px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image46.png" alt="促销价格体系" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p6',3)" style="width: 175px; height: 262.357px;top:220.15px;left:364.102px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image48.png" alt="1元秒杀活动" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p6',4)"><img src="images/portfolio/image49.png" alt="组合销售数据" loading="lazy"><div class="bento-overlay"></div></div>
               <div class="bento-chip">访客+120% · 客单价180→320</div>
             </div>
           </div>
@@ -1036,10 +984,10 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["image54.png","image53.png","image56.png","image55.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p7',1)" style="width: 217.025px; height: 343.284px;top:-0.5808px;left:117.415px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image54.png" alt="种草笔记" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p7',0)" style="width: 139.071px; height: 243.641px;top:-7.75513px;left:391.339px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image53.png" alt="达人矩阵数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p7',3)" style="width: 162.039px; height: 183.963px;top:254.151px;left:335.38px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image56.png" alt="数据成果" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub3" onclick="openLightboxAt('p7',2)" style="width: 111.733px; height: 151.541px;top:65.5195px;left:-6.0462px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image55.png" alt="爆文案例" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p7',1)" style="width: 217.025px; height: 343.284px;top:-0.5808px;left:117.415px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image54.png" alt="种草笔记" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p7',0)" style="width: 139.071px; height: 243.641px;top:-7.75513px;left:391.339px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image53.png" alt="达人矩阵数据" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p7',3)" style="width: 162.039px; height: 183.963px;top:254.151px;left:335.38px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image56.png" alt="数据成果" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p7',2)" style="width: 111.733px; height: 151.541px;top:65.5195px;left:-6.0462px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image55.png" alt="爆文案例" loading="lazy"><div class="bento-overlay"></div></div>
               <div class="bento-chip">1280万曝光 · 22%爆文率</div>
             </div>
           </div>
@@ -1087,12 +1035,12 @@ body.edit-mode .edit-indicator{transform:translateY(0)}
           </div>
           <div class="project-visual" data-images='["image59.jpeg","image63.jpeg","image60.jpeg","image61.jpeg","image62.jpeg","image64.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p8',5)" style="width: 231.05px; height: 453.9px;top:-72.6367px;left:149.128px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image59.jpeg" alt="数据增长" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p8',1)"><img src="images/portfolio/image63.jpeg" alt="知识科普卡片" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p8',4)" style="width: 133.985px; height: 255.04px;top:16.7925px;left:402.316px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image60.jpeg" alt="爆款案例" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub3" onclick="openLightboxAt('p8',3)" style="width: 104.733px; height: 174.6px;top:281.253px;left:-5.53462px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image61.jpeg" alt="动画图文" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub4" onclick="openLightboxAt('p8',0)" style="width: 115.815px; height: 184.414px;top:314.73px;left:381.295px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image62.jpeg" alt="Minayo爆款内容" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
-              <div class="bento-img bento-sub5" onclick="openLightboxAt('p8',2)"><img src="images/portfolio/image64.jpeg" alt="笔记作品" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p8',5)" style="width: 231.05px; height: 453.9px;top:-72.6367px;left:149.128px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image59.jpeg" alt="数据增长" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p8',1)"><img src="images/portfolio/image63.jpeg" alt="知识科普卡片" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p8',4)" style="width: 133.985px; height: 255.04px;top:16.7925px;left:402.316px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image60.jpeg" alt="爆款案例" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p8',3)" style="width: 104.733px; height: 174.6px;top:281.253px;left:-5.53462px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image61.jpeg" alt="动画图文" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p8',0)" style="width: 115.815px; height: 184.414px;top:314.73px;left:381.295px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image62.jpeg" alt="Minayo爆款内容" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub5" onclick="openLightboxAt('p8',2)"><img src="images/portfolio/image64.jpeg" alt="笔记作品" loading="lazy"><div class="bento-overlay"></div></div>
               <div class="bento-chip">曝光+70% · 互动+280%</div>
             </div>
           </div>
@@ -1373,333 +1321,5 @@ document.querySelectorAll('.pie-chart-wrap').forEach(wrap=>{
 });
 </script>
 
-<div class="edit-indicator">✏️ 编辑模式已开启 — 拖拽图片调整位置 · 双击文字编辑内容</div>
-
-<div class="edit-fab" id="editFab">
-  <button class="fab-toggle" onclick="toggleEdit()">
-    <span>✏️</span><span class="fab-text">编辑模式</span>
-  </button>
-  <div class="fab-tools">
-    <button class="fab-tool fab-save" onclick="exportHTML()">
-      <span>💾</span><span>导出HTML</span>
-    </button>
-    <button class="fab-tool" onclick="toggleImageLocks()">
-      <span>🔀</span><span id="lockText">交换图片</span>
-    </button>
-    <button class="fab-tool" id="freeLayoutBtn" onclick="toggleFreeLayout()">
-      <span>📐</span><span id="freeLayoutText">自由布局</span>
-    </button>
-    <button class="fab-tool fab-reset" onclick="resetEdits()">
-      <span>↩️</span><span>重置修改</span>
-    </button>
-  </div>
-</div>
-
-<script>
-let editMode=false;
-let dragEnabled=false;
-let freeLayout=false;
-let draggedEl=null;
-let dragGhost=null;
-let edits={images:{},text:{},layout:{}};
-
-let freeDragEl=null;
-let freeDragStartX=0,freeDragStartY=0;
-let freeDragOrigLeft=0,freeDragOrigTop=0;
-
-let resizeEl=null;
-let resizeStartX=0,resizeStartY=0;
-let resizeOrigW=0,resizeOrigH=0;
-
-function initResizeHandles(){
-  document.querySelectorAll('.bento-img').forEach(el=>{
-    if(el.querySelector('.resize-handle'))return;
-    if(el.classList.contains('pie-chart-wrap'))return;
-    const h=document.createElement('div');
-    h.className='resize-handle';
-    h.addEventListener('mousedown',startResize);
-    el.appendChild(h);
-    
-    el.addEventListener('mousedown',startFreeDrag);
-  });
-}
-
-function toggleEdit(){
-  editMode=!editMode;
-  document.body.classList.toggle('edit-mode',editMode);
-  document.getElementById('editFab').classList.toggle('active',editMode);
-  document.querySelector('.fab-text').textContent=editMode?'关闭编辑':'编辑模式';
-  document.querySelector('.edit-indicator').textContent=freeLayout?'📐 自由布局模式 — 拖拽图片移动 · 右下角蓝点调整大小 · 双击文字编辑':'✏️ 编辑模式已开启 — 点击「交换图片」或「自由布局」开始编辑 · 双击文字编辑内容';
-  if(!editMode){
-    if(dragEnabled)toggleImageLocks();
-    if(freeLayout)toggleFreeLayout();
-  }else{
-    initResizeHandles();
-  }
-}
-
-function toggleImageLocks(){
-  if(freeLayout)toggleFreeLayout();
-  dragEnabled=!dragEnabled;
-  document.getElementById('lockText').textContent=dragEnabled?'🔒 锁定交换':'🔀 交换图片';
-  document.querySelectorAll('.bento-img').forEach(el=>{
-    if(dragEnabled&&!el.classList.contains('pie-chart-wrap')){
-      el.setAttribute('draggable','true');
-      el.classList.remove('free-move');
-    }else{
-      el.removeAttribute('draggable');
-    }
-  });
-}
-
-function toggleFreeLayout(){
-  if(dragEnabled)toggleImageLocks();
-  freeLayout=!freeLayout;
-  document.getElementById('freeLayoutText').textContent=freeLayout?'🔙 退出自由':'📐 自由布局';
-  const btn=document.getElementById('freeLayoutBtn');
-  btn.style.background=freeLayout?'linear-gradient(135deg,#5B5BD6,#8B5CF6)':'';
-  btn.style.color=freeLayout?'#fff':'';
-  
-  document.querySelectorAll('.bento-img').forEach(el=>{
-    if(el.classList.contains('pie-chart-wrap'))return;
-    el.classList.toggle('free-move',freeLayout);
-    el.removeAttribute('draggable');
-  });
-  
-  document.querySelector('.edit-indicator').textContent=freeLayout?'📐 自由布局模式 — 拖拽图片移动位置 · 右下角蓝点拖拽调整大小 · 双击文字编辑':'✏️ 编辑模式已开启 — 点击「交换图片」或「自由布局」开始编辑 · 双击文字编辑内容';
-}
-
-function startFreeDrag(e){
-  if(!freeLayout)return;
-  if(e.target.classList.contains('resize-handle'))return;
-  if(e.target.closest('.resize-handle'))return;
-  
-  freeDragEl=e.currentTarget;
-  const bento=freeDragEl.closest('.bento-grid');
-  const rect=freeDragEl.getBoundingClientRect();
-  const parentRect=bento.getBoundingClientRect();
-  
-  freeDragStartX=e.clientX;
-  freeDragStartY=e.clientY;
-  freeDragOrigLeft=parseFloat(freeDragEl.style.left||freeDragEl.offsetLeft);
-  freeDragOrigTop=parseFloat(freeDragEl.style.top||freeDragEl.offsetTop);
-  
-  freeDragEl.style.zIndex=100;
-  document.body.style.userSelect='none';
-  e.preventDefault();
-}
-
-document.addEventListener('mousemove',function(e){
-  if(freeDragEl){
-    const dx=e.clientX-freeDragStartX;
-    const dy=e.clientY-freeDragStartY;
-    freeDragEl.style.left=(freeDragOrigLeft+dx)+'px';
-    freeDragEl.style.top=(freeDragOrigTop+dy)+'px';
-    freeDragEl.style.right='auto';
-    freeDragEl.style.bottom='auto';
-    freeDragEl.style.transform='rotate(0)';
-  }
-  if(resizeEl){
-    const dx=e.clientX-resizeStartX;
-    const dy=e.clientY-resizeStartY;
-    const newW=Math.max(80,resizeOrigW+dx);
-    const newH=Math.max(80,resizeOrigH+dy);
-    resizeEl.style.width=newW+'px';
-    resizeEl.style.height=newH+'px';
-    resizeEl.style.right='auto';
-    resizeEl.style.bottom='auto';
-  }
-});
-
-document.addEventListener('mouseup',function(){
-  if(freeDragEl){
-    freeDragEl.style.zIndex='';
-    freeDragEl=null;
-    document.body.style.userSelect='';
-  }
-  if(resizeEl){
-    resizeEl.classList.remove('resizing');
-    resizeEl=null;
-    document.body.style.userSelect='';
-  }
-});
-
-function startResize(e){
-  if(!editMode)return;
-  e.stopPropagation();
-  e.preventDefault();
-  
-  resizeEl=e.target.closest('.bento-img');
-  if(!resizeEl)return;
-  
-  resizeEl.classList.add('resizing');
-  const rect=resizeEl.getBoundingClientRect();
-  resizeStartX=e.clientX;
-  resizeStartY=e.clientY;
-  resizeOrigW=rect.width;
-  resizeOrigH=rect.height;
-  resizeEl.style.left=rect.left-resizeEl.closest('.bento-grid').getBoundingClientRect().left+'px';
-  resizeEl.style.top=rect.top-resizeEl.closest('.bento-grid').getBoundingClientRect().top+'px';
-  resizeEl.style.right='auto';
-  resizeEl.style.bottom='auto';
-  resizeEl.style.transform='rotate(0)';
-  document.body.style.userSelect='none';
-}
-
-document.addEventListener('dragstart',function(e){
-  if(!dragEnabled||!e.target.closest('.bento-img'))return;
-  draggedEl=e.target.closest('.bento-img');
-  draggedEl.classList.add('dragging');
-  
-  const rect=draggedEl.getBoundingClientRect();
-  dragGhost=document.createElement('div');
-  dragGhost.className='drag-ghost';
-  const img=draggedEl.querySelector('img');
-  if(img){
-    const ghostImg=document.createElement('img');
-    ghostImg.src=img.src;
-    ghostImg.style.width=Math.min(rect.width,250)+'px';
-    dragGhost.appendChild(ghostImg);
-  }
-  document.body.appendChild(dragGhost);
-  e.dataTransfer.effectAllowed='move';
-  e.dataTransfer.setDragImage(new Image(),0,0);
-});
-
-document.addEventListener('drag',function(e){
-  if(!dragGhost)return;
-  dragGhost.style.left=e.clientX+20+'px';
-  dragGhost.style.top=e.clientY-20+'px';
-});
-
-document.addEventListener('dragover',function(e){
-  if(!dragEnabled||!draggedEl)return;
-  e.preventDefault();
-  const target=e.target.closest('.bento-img');
-  document.querySelectorAll('.bento-img.drag-over').forEach(el=>el.classList.remove('drag-over'));
-  if(target&&target!==draggedEl&&target.closest('.project-visual')===draggedEl.closest('.project-visual')){
-    target.classList.add('drag-over');
-  }
-});
-
-document.addEventListener('drop',function(e){
-  if(!dragEnabled||!draggedEl)return;
-  e.preventDefault();
-  const target=e.target.closest('.bento-img');
-  if(target&&target!==draggedEl&&target.closest('.project-visual')===draggedEl.closest('.project-visual')){
-    swapImages(draggedEl,target);
-  }
-  cleanupDrag();
-});
-
-document.addEventListener('dragend',cleanupDrag);
-
-function cleanupDrag(){
-  if(draggedEl)draggedEl.classList.remove('dragging');
-  document.querySelectorAll('.bento-img.drag-over').forEach(el=>el.classList.remove('drag-over'));
-  if(dragGhost){dragGhost.remove();dragGhost=null;}
-  draggedEl=null;
-}
-
-function swapImages(a,b){
-  const aImg=a.querySelector('img');
-  const bImg=b.querySelector('img');
-  if(!aImg||!bImg)return;
-  
-  const aSrc=aImg.src;
-  const aAlt=aImg.alt;
-  const aOnclick=a.getAttribute('onclick');
-  
-  aImg.src=bImg.src;
-  aImg.alt=bImg.alt;
-  a.setAttribute('onclick',b.getAttribute('onclick'));
-  
-  bImg.src=aSrc;
-  bImg.alt=aAlt;
-  b.setAttribute('onclick',aOnclick);
-  
-  const project=a.closest('.project-visual');
-  const projectId=project.id||'p'+Array.from(document.querySelectorAll('.project-visual')).indexOf(project);
-  edits.images[projectId]=edits.images[projectId]||[];
-  edits.images[projectId].push({time:Date.now(),swap:true});
-}
-
-document.addEventListener('dblclick',function(e){
-  if(!editMode)return;
-  const editable=e.target.closest('.project-title,.project-subtitle,.bs-text,.metric-num,.metric-label,.hero-title,.hero-sub,.stat-num,.stat-label,.section-title');
-  if(!editable)return;
-  
-  e.preventDefault();
-  e.stopPropagation();
-  
-  if(editable.querySelector('textarea'))return;
-  
-  const originalText=editable.textContent.trim();
-  const originalDisplay=editable.style.display;
-  
-  const textarea=document.createElement('textarea');
-  textarea.className='inline-editor';
-  textarea.value=originalText;
-  textarea.style.minHeight=editable.offsetHeight+'px';
-  
-  const save=function(){
-    const newText=textarea.value.trim();
-    if(newText&&newText!==originalText){
-      editable.textContent=newText;
-      edits.text[editable.textContent.substring(0,20)]={original:originalText,new:newText};
-    }else{
-      editable.textContent=originalText;
-    }
-    textarea.remove();
-    editable.style.display=originalDisplay;
-  };
-  
-  textarea.addEventListener('blur',save);
-  textarea.addEventListener('keydown',function(ev){
-    if(ev.key==='Enter'&&!ev.shiftKey){ev.preventDefault();save();}
-    if(ev.key==='Escape'){textarea.value=originalText;save();}
-  });
-  
-  editable.style.display='block';
-  editable.innerHTML='';
-  editable.appendChild(textarea);
-  textarea.focus();
-  textarea.select();
-});
-
-function exportHTML(){
-  const cleanHtml=document.documentElement.outerHTML
-    .replace(/<script[\s\S]*?<\/script>/gi,'')
-    .replace(/<div class="edit-indicator"[\s\S]*?<\/div>/g,'')
-    .replace(/<div class="edit-fab"[\s\S]*?<\/div>\s*<\/div>/g,'')
-    .replace(/<div class="resize-handle"><\/div>/g,'')
-    .replace(/\sclass="[^"]*free-move[^"]*"/g,'')
-    .replace(/\sclass="[^"]*resizing[^"]*"/g,'');
-  
-  const blob=new Blob(['<!DOCTYPE html>\n'+cleanHtml],{type:'text/html;charset=utf-8'});
-  const url=URL.createObjectURL(blob);
-  const a=document.createElement('a');
-  a.href=url;
-  a.download='汪星妤-作品集-编辑版.html';
-  a.click();
-  URL.revokeObjectURL(url);
-  
-  showToast('✅ HTML已下载！自由布局的修改已保存');
-}
-
-function resetEdits(){
-  if(confirm('确定要重置所有修改吗？这将刷新页面恢复原状。')){
-    window.location.reload();
-  }
-}
-
-function showToast(msg){
-  const t=document.createElement('div');
-  t.style.cssText='position:fixed;top:80px;left:50%;transform:translateX(-50%);background:rgba(16,185,129,0.95);color:#fff;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:10001;box-shadow:0 8px 30px rgba(0,0,0,0.15);backdrop-filter:blur(12px)';
-  t.textContent=msg;
-  document.body.appendChild(t);
-  setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300);},2000);
-}
-</script>
 </body>
 </html>
