@@ -8,14 +8,17 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&family=Noto+Sans+SC:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#0a0a0f;--bg-2:#12121a;--surface:#1a1a24;--surface-2:#22222e;
-  --border:rgba(255,255,255,0.08);--border-hi:rgba(255,255,255,0.15);
-  --text:#f5f5f7;--text-2:#a1a1aa;--text-3:#71717a;--text-4:#52525b;
-  --accent:#6366f1;--accent-l:#818cf8;--accent-glow:rgba(99,102,241,0.25);
-  --accent-2:#f472b6;--accent-3:#34d399;--accent-4:#fbbf24;
-  --grad:linear-gradient(135deg,#6366f1 0%,#a855f7 50%,#ec4899 100%);
-  --grad-2:linear-gradient(135deg,#34d399 0%,#22d3ee 100%);
+  --bg:#ffffff;--bg-2:#fafafa;--surface:#ffffff;--surface-2:#f4f4f5;
+  --border:rgba(0,0,0,0.08);--border-hi:rgba(0,0,0,0.15);
+  --text:#18181b;--text-2:#52525b;--text-3:#71717a;--text-4:#a1a1aa;
+  --accent:#5b5bd6;--accent-l:#7c7ce0;--accent-glow:rgba(91,91,214,0.15);
+  --accent-2:#ec4899;--accent-3:#10b981;--accent-4:#f59e0b;
+  --grad:linear-gradient(135deg,#5b5bd6 0%,#8b5cf6 50%,#ec4899 100%);
+  --grad-2:linear-gradient(135deg,#10b981 0%,#06b6d4 100%);
   --font:'Noto Sans SC','Inter',sans-serif;--mono:'JetBrains Mono',monospace;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);
+  --shadow:0 4px 20px rgba(0,0,0,0.08);
+  --shadow-lg:0 12px 40px rgba(0,0,0,0.12);
 }
 *{margin:0;padding:0;box-sizing:border-box}
 html{scroll-behavior:smooth;scroll-padding-top:80px}
@@ -25,7 +28,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 ::selection{background:var(--accent);color:#fff}
 
 /* ===== NAV ===== */
-.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(10,10,15,0.7);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border)}
+.nav{position:fixed;top:0;left:0;right:0;z-index:100;background:rgba(255,255,255,0.8);backdrop-filter:blur(20px) saturate(180%);-webkit-backdrop-filter:blur(20px) saturate(180%);border-bottom:1px solid var(--border)}
 .nav-inner{max-width:1200px;margin:0 auto;padding:0 32px;height:68px;display:flex;align-items:center;justify-content:space-between}
 .nav-brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:16px;color:var(--text);text-decoration:none}
 .nav-logo{width:32px;height:32px;background:var(--grad);border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:900;font-size:14px;color:#fff}
@@ -40,11 +43,11 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 /* ===== HERO ===== */
 .hero{min-height:100vh;display:flex;align-items:center;padding:120px 0 80px;position:relative;overflow:hidden}
 .hero-bg{position:absolute;inset:0;pointer-events:none}
-.hero-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.4}
+.hero-glow{position:absolute;border-radius:50%;filter:blur(120px);opacity:0.15}
 .hero-glow-1{width:600px;height:600px;background:var(--accent);top:-200px;right:-100px}
 .hero-glow-2{width:500px;height:500px;background:#a855f7;bottom:-100px;left:-150px}
 .hero-content{position:relative;z-index:1;width:100%}
-.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(99,102,241,0.1);border:1px solid rgba(99,102,241,0.3);border-radius:999px;font-size:13px;font-weight:500;color:var(--accent-l);margin-bottom:28px}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;padding:8px 16px;background:rgba(91,91,214,0.08);border:1px solid rgba(91,91,214,0.2);border-radius:999px;font-size:13px;font-weight:500;color:var(--accent);margin-bottom:28px}
 .hero-badge-dot{width:7px;height:7px;background:var(--accent-3);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:0.4}}
 .hero h1{font-size:64px;font-weight:900;line-height:1.05;letter-spacing:-0.03em;margin-bottom:20px}
@@ -59,10 +62,10 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .btn-primary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:var(--accent);color:#fff;border:none;border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s}
 .btn-primary:hover{background:var(--accent-l);transform:translateY(-2px);box-shadow:0 8px 30px var(--accent-glow)}
 .btn-secondary{display:inline-flex;align-items:center;gap:8px;padding:14px 28px;background:transparent;color:var(--text);border:1px solid var(--border-hi);border-radius:12px;font-size:15px;font-weight:600;cursor:pointer;text-decoration:none;transition:all .25s}
-.btn-secondary:hover{border-color:var(--text);background:rgba(255,255,255,0.05);transform:translateY(-2px)}
+.btn-secondary:hover{border-color:var(--text);background:rgba(0,0,0,0.03);transform:translateY(-2px)}
 
 /* Hero stats bar */
-.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:64px;border:1px solid var(--border)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);border-radius:16px;overflow:hidden;margin-top:64px;border:1px solid var(--border);box-shadow:var(--shadow)}
 .hero-stat{background:var(--surface);padding:24px;text-align:center}
 .hero-stat-num{font-size:32px;font-weight:900;font-family:var(--mono);background:var(--grad);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
 .hero-stat-label{font-size:12px;color:var(--text-3);margin-top:8px;font-weight:500}
@@ -77,24 +80,24 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
 /* ===== ABOUT / ADVANTAGES ===== */
 .advantages-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
-.adv-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s;position:relative;overflow:hidden}
-.adv-card:hover{border-color:var(--border-hi);transform:translateY(-4px)}
+.adv-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s;position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
+.adv-card:hover{border-color:rgba(91,91,214,0.2);transform:translateY(-4px);box-shadow:var(--shadow-lg)}
 .adv-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--grad);opacity:0;transition:opacity .3s}
 .adv-card:hover::before{opacity:1}
 .adv-icon{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:24px;margin-bottom:20px}
-.adv-icon-1{background:rgba(99,102,241,0.15)}
-.adv-icon-2{background:rgba(52,211,153,0.15)}
-.adv-icon-3{background:rgba(244,114,182,0.15)}
+.adv-icon-1{background:rgba(91,91,214,0.1)}
+.adv-icon-2{background:rgba(16,185,129,0.1)}
+.adv-icon-3{background:rgba(236,72,153,0.1)}
 .adv-title{font-size:18px;font-weight:700;margin-bottom:12px}
 .adv-desc{font-size:14px;color:var(--text-2);line-height:1.8}
 
 /* ===== EDUCATION ===== */
 .edu-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;gap:20px;align-items:flex-start;transition:all .3s}
-.edu-card:hover{border-color:var(--border-hi)}
+.edu-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;display:flex;gap:20px;align-items:flex-start;transition:all .3s;box-shadow:var(--shadow-sm)}
+.edu-card:hover{border-color:rgba(91,91,214,0.2);box-shadow:var(--shadow)}
 .edu-logo{width:56px;height:56px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-weight:900;font-size:16px;color:#fff;flex-shrink:0}
 .edu-school{font-size:18px;font-weight:700;margin-bottom:4px}
-.edu-degree{font-size:14px;color:var(--accent-l);font-weight:600;margin-bottom:4px}
+.edu-degree{font-size:14px;color:var(--accent);font-weight:600;margin-bottom:4px}
 .edu-period{font-size:13px;color:var(--text-4);font-family:var(--mono)}
 
 /* ===== EXPERIENCE ===== */
@@ -103,16 +106,16 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .tl-item{position:relative;padding-left:72px;padding-bottom:48px}
 .tl-item:last-child{padding-bottom:0}
 .tl-dot{position:absolute;left:14px;top:4px;width:22px;height:22px;border-radius:50%;background:var(--bg);border:3px solid var(--accent);z-index:1}
-.tl-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s}
-.tl-card:hover{border-color:var(--border-hi);box-shadow:0 8px 30px rgba(0,0,0,0.3)}
+.tl-card{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;transition:all .3s;box-shadow:var(--shadow-sm)}
+.tl-card:hover{border-color:rgba(91,91,214,0.2);box-shadow:var(--shadow)}
 .tl-header{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:8px;flex-wrap:wrap;gap:12px}
 .tl-company{font-size:20px;font-weight:800;display:flex;align-items:center;gap:10px}
 .tl-company-badge{font-size:11px;padding:3px 10px;border-radius:6px;font-weight:700}
-.badge-bytedance{background:rgba(99,102,241,0.2);color:var(--accent-l)}
-.badge-babycare{background:rgba(244,114,182,0.2);color:var(--accent-2)}
-.badge-kidswant{background:rgba(251,191,36,0.2);color:var(--accent-4)}
-.tl-role{font-size:15px;color:var(--accent-l);font-weight:600;margin-bottom:16px}
-.tl-period{font-size:13px;color:var(--text-4);font-family:var(--mono);background:var(--bg-2);padding:4px 12px;border-radius:6px}
+.badge-bytedance{background:rgba(91,91,214,0.12);color:var(--accent)}
+.badge-babycare{background:rgba(236,72,153,0.12);color:var(--accent-2)}
+.badge-kidswant{background:rgba(245,158,11,0.12);color:var(--accent-4)}
+.tl-role{font-size:15px;color:var(--accent);font-weight:600;margin-bottom:16px}
+.tl-period{font-size:13px;color:var(--text-3);font-family:var(--mono);background:var(--surface-2);padding:4px 12px;border-radius:6px}
 .tl-list{list-style:none}
 .tl-list li{font-size:14px;color:var(--text-2);line-height:1.8;padding-left:20px;position:relative;margin-bottom:8px}
 .tl-list li::before{content:'';position:absolute;left:0;top:10px;width:6px;height:6px;background:var(--accent);border-radius:50%}
@@ -131,82 +134,108 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .project-meta{display:flex;align-items:center;gap:12px;margin-bottom:20px}
 .project-index{font-size:12px;font-weight:700;font-family:var(--mono);color:var(--text-4);letter-spacing:0.1em}
 .project-tag{display:inline-block;font-size:11px;font-weight:700;padding:5px 14px;border-radius:20px;text-transform:uppercase;letter-spacing:0.06em}
-.tag-1{background:linear-gradient(135deg,rgba(99,102,241,0.2),rgba(99,102,241,0.08));color:var(--accent-l);border:1px solid rgba(99,102,241,0.2)}
-.tag-2{background:linear-gradient(135deg,rgba(244,114,182,0.2),rgba(244,114,182,0.08));color:var(--accent-2);border:1px solid rgba(244,114,182,0.2)}
-.tag-3{background:linear-gradient(135deg,rgba(52,211,153,0.2),rgba(52,211,153,0.08));color:var(--accent-3);border:1px solid rgba(52,211,153,0.2)}
-.tag-4{background:linear-gradient(135deg,rgba(251,191,36,0.2),rgba(251,191,36,0.08));color:var(--accent-4);border:1px solid rgba(251,191,36,0.2)}
+.tag-1{background:rgba(91,91,214,0.08);color:var(--accent);border:1px solid rgba(91,91,214,0.15)}
+.tag-2{background:rgba(236,72,153,0.08);color:var(--accent-2);border:1px solid rgba(236,72,153,0.15)}
+.tag-3{background:rgba(16,185,129,0.08);color:var(--accent-3);border:1px solid rgba(16,185,129,0.15)}
+.tag-4{background:rgba(245,158,11,0.08);color:var(--accent-4);border:1px solid rgba(245,158,11,0.15)}
 .project-title{font-size:32px;font-weight:900;line-height:1.15;margin-bottom:12px;letter-spacing:-0.02em}
-.project-subtitle{font-size:15px;color:var(--text-3);margin-bottom:20px;font-style:italic;font-weight:500}
-.project-desc{font-size:14px;color:var(--text-2);line-height:1.85;margin-bottom:28px}
+.project-subtitle{font-size:15px;color:var(--text-3);margin-bottom:24px;font-style:italic;font-weight:500}
+
+/* 三段式结构：背景-策略-成果 */
+.project-bsframe{margin-bottom:24px;display:flex;flex-direction:column;gap:14px}
+.bs-item{display:flex;gap:12px;align-items:flex-start}
+.bs-label{flex-shrink:0;font-size:10px;font-weight:800;font-family:var(--mono);letter-spacing:0.1em;padding:4px 10px;border-radius:6px;margin-top:2px;text-transform:uppercase}
+.bs-label.bg{background:rgba(91,91,214,0.1);color:var(--accent)}
+.bs-label.str{background:rgba(16,185,129,0.1);color:var(--accent-3)}
+.bs-label.res{background:rgba(245,158,11,0.1);color:var(--accent-4)}
+.bs-text{font-size:13px;color:var(--text-2);line-height:1.75;padding-top:1px}
+
 .project-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}
-.metric{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 14px;text-align:center;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden}
+.metric{background:var(--surface);border:1px solid var(--border);border-radius:14px;padding:16px 14px;text-align:center;transition:all .35s cubic-bezier(.2,.8,.2,1);position:relative;overflow:hidden;box-shadow:var(--shadow-sm)}
 .metric::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent-glow));opacity:0;transition:opacity .3s}
 .metric > *{position:relative;z-index:1}
-.metric:hover{transform:translateY(-4px);border-color:transparent;box-shadow:0 12px 30px rgba(99,102,241,0.2)}
-.metric:hover::before{opacity:0.08}
+.metric:hover{transform:translateY(-4px);border-color:rgba(91,91,214,0.2);box-shadow:var(--shadow)}
+.metric:hover::before{opacity:0.04}
 .metric-num{font-size:22px;font-weight:900;font-family:var(--mono);line-height:1;margin-bottom:6px}
 .metric-num.green{color:var(--accent-3)}
-.metric-num.blue{color:var(--accent-l)}
+.metric-num.blue{color:var(--accent)}
 .metric-num.pink{color:var(--accent-2)}
 .metric-num.gold{color:var(--accent-4)}
 .metric-label{font-size:10.5px;color:var(--text-4);font-weight:500;line-height:1.4}
 
 .project-visual{position:relative;height:480px;perspective:1200px;z-index:1}
 .bento-grid{position:relative;width:100%;height:100%}
-.bento-img{position:absolute;border-radius:16px;overflow:hidden;box-shadow:0 8px 30px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.2);transition:all .5s cubic-bezier(.2,.8,.2,1);cursor:pointer;background:var(--bg-2)}
+.bento-img{position:absolute;border-radius:16px;overflow:hidden;box-shadow:var(--shadow-lg);transition:all .5s cubic-bezier(.2,.8,.2,1);cursor:pointer;background:var(--surface-2)}
 .bento-img img{width:100%;height:100%;object-fit:cover;transition:transform .7s cubic-bezier(.2,.8,.2,1),filter .4s}
-.bento-img:hover{z-index:10;box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 0 2px var(--accent-glow)}
+.bento-img:hover{z-index:10;box-shadow:0 25px 60px rgba(0,0,0,0.2),0 0 0 3px rgba(91,91,214,0.2)}
 .bento-img:hover img{transform:scale(1.06)}
 
 /* Bento layout variants per project */
-.project-v1 .bento-main{width:62%;height:72%;top:8%;left:0;transform:rotate(-2deg)}
-.project-v1 .bento-sub1{width:34%;height:45%;top:0;right:2%;transform:rotate(3deg)}
-.project-v1 .bento-sub2{width:34%;height:42%;bottom:8%;right:0;transform:rotate(-1.5deg)}
-.project-v1 .bento-chip{position:absolute;bottom:12%;left:4%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v1 .bento-main{width:68%;height:58%;bottom:5%;left:16%;transform:rotate(-1deg);z-index:3}
+.project-v1 .bento-sub1{width:22%;height:48%;top:5%;left:0;transform:rotate(-3deg);z-index:2}
+.project-v1 .bento-sub2{width:22%;height:48%;top:2%;right:2%;transform:rotate(2.5deg);z-index:2}
+.project-v1 .bento-sub3{width:18%;height:28%;bottom:8%;left:0;transform:rotate(2deg);z-index:1}
+.project-v1 .bento-sub4{width:18%;height:28%;bottom:10%;right:0;transform:rotate(-2deg);z-index:1}
+.project-v1 .bento-chip{position:absolute;top:12%;left:26%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
-.project-v2 .bento-main{width:60%;height:68%;bottom:5%;right:5%;transform:rotate(2.5deg)}
-.project-v2 .bento-sub1{width:38%;height:40%;top:5%;left:0;transform:rotate(-3deg)}
-.project-v2 .bento-sub2{width:32%;height:35%;bottom:15%;left:8%;transform:rotate(1deg)}
-.project-v2 .bento-chip{position:absolute;top:8%;right:6%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v2 .bento-main{width:58%;height:65%;bottom:5%;right:8%;transform:rotate(2deg);z-index:3}
+.project-v2 .bento-sub1{width:32%;height:42%;top:3%;left:0;transform:rotate(-2.5deg);z-index:2}
+.project-v2 .bento-sub2{width:26%;height:32%;bottom:12%;left:6%;transform:rotate(1.5deg);z-index:2}
+.project-v2 .bento-sub3{width:22%;height:25%;top:15%;right:2%;transform:rotate(-1deg);z-index:1}
+.project-v2 .bento-chip{position:absolute;top:8%;left:10%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
-.project-v3 .bento-main{width:58%;height:65%;top:15%;left:5%;transform:rotate(-1.5deg)}
-.project-v3 .bento-sub1{width:40%;height:42%;top:0;right:0;transform:rotate(2deg)}
-.project-v3 .bento-sub2{width:36%;height:38%;bottom:5%;right:8%;transform:rotate(-2.5deg)}
-.project-v3 .bento-chip{position:absolute;top:20%;right:2%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v3 .bento-main{width:55%;height:62%;top:18%;left:18%;transform:rotate(-1deg);z-index:3}
+.project-v3 .bento-sub1{width:28%;height:42%;top:0;right:0;transform:rotate(2.5deg);z-index:2}
+.project-v3 .bento-sub2{width:26%;height:38%;bottom:5%;left:0;transform:rotate(-2deg);z-index:2}
+.project-v3 .bento-sub3{width:18%;height:24%;top:8%;left:2%;transform:rotate(3deg);z-index:1}
+.project-v3 .bento-sub4{width:18%;height:24%;bottom:12%;right:4%;transform:rotate(-3deg);z-index:1}
+.project-v3 .bento-chip{position:absolute;bottom:8%;left:35%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
-.project-v4 .bento-main{width:65%;height:70%;top:10%;right:0;transform:rotate(2deg)}
-.project-v4 .bento-sub1{width:33%;height:38%;top:0;left:5%;transform:rotate(-2deg)}
-.project-v4 .bento-sub2{width:30%;height:35%;bottom:10%;left:0;transform:rotate(3deg)}
-.project-v4 .bento-chip{position:absolute;bottom:14%;left:38%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v4 .bento-main{width:55%;height:65%;top:15%;right:8%;transform:rotate(1.5deg);z-index:3}
+.project-v4 .bento-sub1{width:30%;height:45%;bottom:5%;left:0;transform:rotate(-2.5deg);z-index:2}
+.project-v4 .bento-sub2{width:28%;height:32%;top:0;left:5%;transform:rotate(2deg);z-index:2}
+.project-v4 .bento-chip{position:absolute;bottom:15%;right:12%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
-.project-v5 .bento-main{width:60%;height:68%;bottom:8%;left:3%;transform:rotate(-2.5deg)}
-.project-v5 .bento-sub1{width:38%;height:45%;top:5%;right:3%;transform:rotate(3deg)}
-.project-v5 .bento-sub2{width:30%;height:32%;bottom:12%;right:10%;transform:rotate(-1deg)}
-.project-v5 .bento-chip{position:absolute;top:10%;left:2%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v5 .bento-main{width:52%;height:60%;bottom:10%;left:22%;transform:rotate(-2deg);z-index:3}
+.project-v5 .bento-sub1{width:26%;height:42%;top:5%;right:0;transform:rotate(3deg);z-index:2}
+.project-v5 .bento-sub2{width:24%;height:35%;bottom:8%;right:5%;transform:rotate(-1.5deg);z-index:2}
+.project-v5 .bento-sub3{width:20%;height:28%;top:12%;left:0;transform:rotate(-2.5deg);z-index:1}
+.project-v5 .bento-sub4{width:18%;height:24%;bottom:15%;left:5%;transform:rotate(2deg);z-index:1}
+.project-v5 .bento-chip{position:absolute;top:8%;left:25%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
-.project-v6 .bento-main{width:62%;height:70%;top:8%;right:4%;transform:rotate(1.5deg)}
-.project-v6 .bento-sub1{width:35%;height:40%;bottom:10%;left:0;transform:rotate(-3deg)}
-.project-v6 .bento-sub2{width:32%;height:34%;top:5%;left:6%;transform:rotate(2deg)}
-.project-v6 .bento-chip{position:absolute;bottom:15%;right:5%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v6 .bento-main{width:56%;height:62%;top:12%;right:15%;transform:rotate(1deg);z-index:3}
+.project-v6 .bento-sub1{width:28%;height:44%;bottom:5%;left:0;transform:rotate(-3deg);z-index:2}
+.project-v6 .bento-sub2{width:24%;height:32%;top:0;right:0;transform:rotate(2.5deg);z-index:2}
+.project-v6 .bento-sub3{width:18%;height:26%;bottom:15%;right:0;transform:rotate(-1.5deg);z-index:1}
+.project-v6 .bento-sub4{width:18%;height:24%;top:18%;left:5%;transform:rotate(2deg);z-index:1}
+.project-v6 .bento-chip{position:absolute;bottom:12%;left:30%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
-.project-v7 .bento-main{width:58%;height:65%;top:12%;left:8%;transform:rotate(2deg)}
-.project-v7 .bento-sub1{width:40%;height:44%;top:0;right:0;transform:rotate(-2.5deg)}
-.project-v7 .bento-sub2{width:34%;height:36%;bottom:8%;right:6%;transform:rotate(1.5deg)}
-.project-v7 .bento-chip{position:absolute;top:18%;right:3%;padding:8px 16px;background:rgba(0,0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v7 .bento-main{width:58%;height:68%;bottom:5%;left:5%;transform:rotate(2deg);z-index:3}
+.project-v7 .bento-sub1{width:26%;height:42%;top:0;right:0;transform:rotate(-2.5deg);z-index:2}
+.project-v7 .bento-sub2{width:24%;height:35%;bottom:10%;right:6%;transform:rotate(1.5deg);z-index:2}
+.project-v7 .bento-sub3{width:18%;height:26%;top:15%;left:0;transform:rotate(-2deg);z-index:1}
+.project-v7 .bento-chip{position:absolute;top:10%;left:28%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
-.project-v8 .bento-main{width:64%;height:72%;top:6%;right:2%;transform:rotate(-2deg)}
-.project-v8 .bento-sub1{width:34%;height:40%;top:10%;left:0;transform:rotate(3deg)}
-.project-v8 .bento-sub2{width:30%;height:32%;bottom:8%;left:8%;transform:rotate(-1deg)}
-.project-v8 .bento-chip{position:absolute;bottom:12%;right:4%;padding:8px 16px;background:rgba(0,0,0.7);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:5;border:1px solid rgba(255,255,255,0.1)}
+.project-v8 .bento-main{width:50%;height:55%;top:15%;left:25%;transform:rotate(-1.5deg);z-index:3}
+.project-v8 .bento-sub1{width:22%;height:38%;top:0;left:0;transform:rotate(3deg);z-index:2}
+.project-v8 .bento-sub2{width:24%;height:35%;top:5%;right:0;transform:rotate(-2deg);z-index:2}
+.project-v8 .bento-sub3{width:18%;height:25%;bottom:15%;left:0;transform:rotate(-2.5deg);z-index:1}
+.project-v8 .bento-sub4{width:20%;height:28%;bottom:5%;right:8%;transform:rotate(2deg);z-index:1}
+.project-v8 .bento-sub5{width:16%;height:22%;bottom:8%;left:22%;transform:rotate(1.5deg);z-index:1}
+.project-v8 .bento-chip{position:absolute;top:8%;left:28%;padding:8px 16px;background:rgba(0,0,0,0.75);backdrop-filter:blur(12px);border-radius:10px;font-size:12px;font-weight:600;color:#fff;font-family:var(--mono);z-index:10;border:1px solid rgba(255,255,255,0.15)}
 
 /* Hover: images align */
 .project-visual:hover .bento-main{transform:rotate(0) translateY(-4px) scale(1.02)}
 .project-visual:hover .bento-sub1{transform:rotate(0) translateY(-6px) scale(1.03)}
 .project-visual:hover .bento-sub2{transform:rotate(0) translateY(-2px) scale(1.02)}
-.bento-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 40%,rgba(0,0,0,0.5));pointer-events:none;border-radius:16px;opacity:0;transition:opacity .4s}
+.project-visual:hover .bento-sub3{transform:rotate(0) translateY(-5px) scale(1.03)}
+.project-visual:hover .bento-sub4{transform:rotate(0) translateY(-3px) scale(1.02)}
+.project-visual:hover .bento-sub5{transform:rotate(0) translateY(-4px) scale(1.03)}
+.bento-overlay{position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(255,255,255,0.1) 100%);pointer-events:none;border-radius:16px;opacity:0;transition:opacity .4s}
 .bento-img:hover .bento-overlay{opacity:1}
+.bento-chip{background:rgba(255,255,255,0.9)!important;backdrop-filter:blur(12px)!important;-webkit-backdrop-filter:blur(12px)!important;color:var(--text)!important;border:1px solid var(--border)!important;box-shadow:var(--shadow-sm)!important}
 
-/* Lightbox */
+/* Lightbox - keep dark for image viewing */
 .lightbox{position:fixed;inset:0;z-index:1000;background:rgba(0,0,0,0.96);display:flex;align-items:center;justify-content:center;opacity:0;visibility:hidden;transition:all .35s;backdrop-filter:blur(20px)}
 .lightbox.open{opacity:1;visibility:visible}
 .lightbox-img{max-width:88vw;max-height:85vh;object-fit:contain;border-radius:12px;box-shadow:0 30px 80px rgba(0,0,0,0.6);animation:lightboxIn .4s cubic-bezier(.2,.8,.2,1)}
@@ -220,43 +249,44 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 .lightbox-counter{position:absolute;bottom:28px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.5);font-size:13px;font-family:var(--mono);letter-spacing:0.05em}
 .lightbox-caption{position:absolute;bottom:60px;left:50%;transform:translateX(-50%);color:rgba(255,255,255,0.6);font-size:13px;text-align:center;max-width:60vw}
 
-/* ===== CUSTOM PIE CHART ===== */
-.pie-chart-wrap{position:absolute;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,#1a1a2e,#16213e);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;transition:all .5s cubic-bezier(.2,.8,.2,1);cursor:pointer;box-shadow:0 8px 30px rgba(0,0,0,0.4),0 2px 8px rgba(0,0,0,0.2);z-index:3}
-.pie-chart-wrap:hover{z-index:10;box-shadow:0 25px 60px rgba(0,0,0,0.5),0 0 0 2px var(--accent-glow)}
-.pie-chart-wrap .pie-title{font-size:10px;font-weight:700;color:rgba(255,255,255,0.9);text-align:center;margin-bottom:6px;letter-spacing:0.05em;text-transform:uppercase}
-.pie-chart-wrap .pie-subtitle{font-size:8px;color:rgba(255,255,255,0.5);text-align:center;margin-bottom:8px;font-family:var(--mono)}
+/* ===== CUSTOM PIE CHART - Light Theme ===== */
+.pie-chart-wrap{position:absolute;border-radius:16px;overflow:hidden;background:linear-gradient(145deg,#ffffff,#f8f9fa);display:flex;flex-direction:column;align-items:center;justify-content:center;padding:12px;transition:all .5s cubic-bezier(.2,.8,.2,1);cursor:pointer;box-shadow:var(--shadow-lg);z-index:3;border:1px solid var(--border)}
+.pie-chart-wrap:hover{z-index:10;box-shadow:0 25px 60px rgba(0,0,0,0.15),0 0 0 3px rgba(91,91,214,0.2)}
+.pie-chart-wrap .pie-title{font-size:10px;font-weight:700;color:var(--text);text-align:center;margin-bottom:6px;letter-spacing:0.05em;text-transform:uppercase}
+.pie-chart-wrap .pie-subtitle{font-size:8px;color:var(--text-3);text-align:center;margin-bottom:8px;font-family:var(--mono)}
 .pie-svg{width:120px;height:120px}
 .pie-segment{transition:all .3s cubic-bezier(.2,.8,.2,1);transform-origin:center;cursor:pointer}
-.pie-segment:hover{filter:brightness(1.2);transform:scale(1.05)}
-.pie-center-text{font-family:var(--mono);font-size:20px;font-weight:900;fill:#fff;text-anchor:middle}
-.pie-center-label{font-size:7px;fill:rgba(255,255,255,0.5);text-anchor:middle}
+.pie-segment:hover{filter:brightness(1.1);transform:scale(1.05)}
+.pie-center-text{font-family:var(--mono);font-size:20px;font-weight:900;fill:var(--text);text-anchor:middle}
+.pie-center-label{font-size:7px;fill:var(--text-3);text-anchor:middle}
 .pie-legend{display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;justify-content:center}
 .pie-legend-item{display:flex;align-items:center;gap:3px}
 .pie-legend-dot{width:6px;height:6px;border-radius:50%}
-.pie-legend-text{font-size:7px;color:rgba(255,255,255,0.7)}
-.pie-tooltip{position:absolute;background:rgba(0,0,0,0.9);color:#fff;padding:6px 10px;border-radius:8px;font-size:10px;font-weight:600;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;z-index:20;backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,0.1)}
+.pie-legend-text{font-size:7px;color:var(--text-2)}
+.pie-tooltip{position:absolute;background:rgba(255,255,255,0.98);color:var(--text);padding:6px 10px;border-radius:8px;font-size:10px;font-weight:600;pointer-events:none;opacity:0;transition:opacity .2s;white-space:nowrap;z-index:20;backdrop-filter:blur(8px);border:1px solid var(--border);box-shadow:var(--shadow)}
 
 /* ===== SKILLS ===== */
 .skills-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:24px}
-.skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px}
+.skill-cat{background:var(--surface);border:1px solid var(--border);border-radius:20px;padding:32px;box-shadow:var(--shadow-sm);transition:all .3s}
+.skill-cat:hover{box-shadow:var(--shadow);border-color:rgba(91,91,214,0.15)}
 .skill-cat-title{font-size:16px;font-weight:700;margin-bottom:20px;display:flex;align-items:center;gap:10px}
 .skill-tags{display:flex;flex-wrap:wrap;gap:8px}
-.skill-tag{padding:8px 16px;background:var(--bg-2);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text-2);transition:all .2s;font-weight:500}
-.skill-tag:hover{border-color:var(--accent);color:var(--accent-l);background:rgba(99,102,241,0.1)}
+.skill-tag{padding:8px 16px;background:var(--surface-2);border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--text-2);transition:all .2s;font-weight:500}
+.skill-tag:hover{border-color:var(--accent);color:var(--accent);background:rgba(91,91,214,0.08)}
 
 /* ===== CONTACT ===== */
-.contact{padding:128px 0;text-align:center;position:relative;overflow:hidden}
-.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(99,102,241,0.12) 0%,transparent 70%);pointer-events:none}
+.contact{padding:128px 0;text-align:center;position:relative;overflow:hidden;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-2) 100%)}
+.contact-bg{position:absolute;inset:0;background:radial-gradient(ellipse at center,rgba(91,91,214,0.08) 0%,transparent 70%);pointer-events:none}
 .contact-inner{position:relative;z-index:1}
 .contact-title{font-size:48px;font-weight:900;letter-spacing:-0.02em;margin-bottom:16px}
 .contact-desc{font-size:17px;color:var(--text-2);margin-bottom:40px;max-width:500px;margin-left:auto;margin-right:auto}
 .contact-links{display:flex;justify-content:center;gap:16px;flex-wrap:wrap}
-.contact-link{display:flex;align-items:center;gap:10px;padding:16px 32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;font-size:15px;font-weight:600;color:var(--text);text-decoration:none;transition:all .25s}
+.contact-link{display:flex;align-items:center;gap:10px;padding:16px 32px;background:var(--surface);border:1px solid var(--border);border-radius:14px;font-size:15px;font-weight:600;color:var(--text);text-decoration:none;transition:all .25s;box-shadow:var(--shadow-sm)}
 .contact-link:hover{background:var(--accent);color:#fff;border-color:var(--accent);transform:translateY(-3px);box-shadow:0 8px 30px var(--accent-glow)}
 .contact-link .mono{font-size:14px}
 
 /* ===== FOOTER ===== */
-.footer{padding:32px 0;border-top:1px solid var(--border);text-align:center}
+.footer{padding:32px 0;border-top:1px solid var(--border);text-align:center;background:var(--bg-2)}
 .footer-text{font-size:13px;color:var(--text-4)}
 
 /* ===== REVEAL ===== */
@@ -296,6 +326,56 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   .bento-img{border-radius:10px}
   .bento-chip{font-size:10px!important;padding:5px 10px!important}
 }
+
+/* ===== VISUAL EDITOR ===== */
+.edit-fab{position:fixed;bottom:24px;right:24px;z-index:9999;display:flex;flex-direction:column;gap:8px;align-items:flex-end}
+.edit-fab button{border:none;border-radius:12px;padding:12px 20px;font-size:13px;font-weight:600;font-family:var(--font);cursor:pointer;transition:all .3s;display:flex;align-items:center;gap:8px;box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.edit-fab .fab-toggle{background:linear-gradient(135deg,#5B5BD6,#8B5CF6);color:#fff}
+.edit-fab .fab-toggle:hover{transform:scale(1.05);box-shadow:0 6px 30px rgba(91,91,214,0.5)}
+.edit-fab .fab-tools{display:none;flex-direction:column;gap:8px}
+.edit-fab.active .fab-tools{display:flex}
+.edit-fab .fab-tool{background:rgba(255,255,255,0.98);color:var(--text);backdrop-filter:blur(12px);border:1px solid var(--border);box-shadow:var(--shadow)}
+.edit-fab .fab-tool:hover{background:rgba(245,245,245,0.98);transform:translateX(-4px);box-shadow:var(--shadow-lg)}
+.edit-fab .fab-save{background:linear-gradient(135deg,#10B981,#059669);color:#fff;border:none}
+.edit-fab .fab-save:hover{box-shadow:0 6px 20px rgba(16,185,129,0.3)}
+.edit-fab .fab-reset{background:rgba(255,255,255,0.98);color:#EF4444;border:1px solid rgba(239,68,68,0.2)}
+.edit-fab .fab-reset:hover{background:rgba(254,242,242,0.98)}
+body.edit-mode .bento-img{cursor:grab;outline:2px dashed rgba(91,91,214,0.4);outline-offset:4px}
+body.edit-mode .bento-img:active{cursor:grabbing}
+body.edit-mode .bento-img.dragging{opacity:0.4;transform:scale(0.95)}
+body.edit-mode .bento-img.drag-over{outline:3px solid var(--accent);outline-offset:4px;box-shadow:0 0 30px rgba(91,91,214,0.2)}
+body.edit-mode .bento-img.free-move{cursor:move;z-index:50;position:absolute}
+body.edit-mode .bento-img.free-move:active{cursor:grabbing}
+.resize-handle{display:none;position:absolute;bottom:-4px;right:-4px;width:20px;height:20px;background:var(--accent);border:3px solid #fff;border-radius:50%;cursor:nwse-resize;z-index:100;box-shadow:0 2px 8px rgba(91,91,214,0.4);transition:transform .15s}
+.resize-handle:hover{transform:scale(1.2);background:var(--accent-l)}
+body.edit-mode .resize-handle{display:block}
+.resize-handle::after{content:'';position:absolute;bottom:3px;right:3px;width:8px;height:8px;border-right:2px solid #fff;border-bottom:2px solid #fff;border-radius:0 0 2px 0}
+body.edit-mode .bento-img.resizing{user-select:none;opacity:0.8;z-index:100}
+body.edit-mode .project-title,
+body.edit-mode .project-subtitle,
+body.edit-mode .bs-text,
+body.edit-mode .metric-num,
+body.edit-mode .metric-label,
+body.edit-mode .hero-title,
+body.edit-mode .hero-sub,
+body.edit-mode .stat-num,
+body.edit-mode .stat-label,
+body.edit-mode .section-title{cursor:text;outline:2px dashed rgba(16,185,129,0.4);outline-offset:3px;transition:outline-color .2s}
+body.edit-mode .project-title:hover,
+body.edit-mode .project-subtitle:hover,
+body.edit-mode .bs-text:hover,
+body.edit-mode .metric-num:hover,
+body.edit-mode .metric-label:hover,
+body.edit-mode .hero-title:hover,
+body.edit-mode .hero-sub:hover,
+body.edit-mode .stat-num:hover,
+body.edit-mode .stat-label:hover,
+body.edit-mode .section-title:hover{outline-color:rgba(16,185,129,0.8)}
+.edit-indicator{position:fixed;top:0;left:0;right:0;background:linear-gradient(90deg,#5B5BD6,#8B5CF6);color:#fff;text-align:center;padding:8px;font-size:12px;font-weight:600;font-family:var(--mono);z-index:9998;transform:translateY(-100%);transition:transform .3s}
+body.edit-mode .edit-indicator{transform:translateY(0)}
+.inline-editor{background:#fff;color:var(--text);border:2px solid var(--accent);border-radius:12px;padding:12px 16px;font-size:inherit;font-family:inherit;line-height:inherit;width:100%;min-width:200px;outline:none;box-shadow:0 8px 40px rgba(91,91,214,0.2);resize:vertical}
+.drag-ghost{position:fixed;pointer-events:none;z-index:10000;opacity:0.85;transform:rotate(3deg) scale(0.8);box-shadow:0 20px 60px rgba(0,0,0,0.5);border-radius:16px;overflow:hidden}
+.drag-ghost img{width:200px;height:auto;display:block}
 </style>
 </head>
 <body>
@@ -343,10 +423,6 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
       <div class="hero-meta-item">
         <span class="hero-meta-label">EDUCATION</span>
         <span class="hero-meta-value">南京林业大学 · 硕士</span>
-      </div>
-      <div class="hero-meta-item">
-        <span class="hero-meta-label">STATUS</span>
-        <span class="hero-meta-value" style="color:var(--accent-3)">● 在职实习中</span>
       </div>
     </div>
     <div class="hero-cta reveal">
@@ -491,7 +567,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
     <div class="section-header reveal">
       <span class="section-label">PROJECT CASES</span>
       <h2 class="section-title">项目案例</h2>
-      <p class="section-desc">8个核心项目，覆盖销售运营、电商增长、内容营销、产品迭代等领域，共58张真实作品图</p>
+      <p class="section-desc">覆盖销售运营、电商运营、平台品类运营，内容营销、产品迭代等领域</p>
     </div>
     <div class="projects-list">
 
@@ -505,7 +581,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
             </div>
             <h3 class="project-title">抖音生活服务商家生态大会</h3>
             <p class="project-subtitle">"用一张表管住700人——信息协同的效率，决定了大会执行的品质"</p>
-            <p class="project-desc">抖音上线"心动目的地"战略，在杭州举办文旅生态大会，邀约全国酒旅头部商家500家参会。搭建统一商家信息主表，以多维表格替代云文档，配置独立视图、操作日志、自动化规则，实现信息协同零错误。</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">抖音上线"心动目的地"战略，在杭州举办文旅生态大会，邀约全国酒旅头部商家500家参会，需统筹近700人信息管理，传统云文档协同效率低、错误率高、不可追溯。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">以多维表格替代云文档：①搭建统一商家信息主表；②为每位业务配置独立视图（仅可见自己负责商家）；③开启操作日志，每条修改自动记录人/时间/内容；④设置自动化规则：信息确认→自动发邮件，抵达3日内→自动提醒接机组。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">B端整体传播曝光超4亿，获人民网、新华社等主流媒体报道；700+人签到零投诉，商家满意度4.8/5以上；信息匹配错误率从8-12%降至0%，录入准确率99.5%；方案沉淀为大型活动SOP标准配置。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num blue">4亿+</div>
@@ -521,12 +610,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image10.png","image11.png","image12.png","image13.jpeg","image14.jpeg","image15.png","image9.png"]'>
+          <div class="project-visual" data-images='["p1-beijing.jpg.png","p1-guangzhou.jpg.png","p1-seating.jpg.png","image13.jpeg","image15.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p1',0)"><img src="images/portfolio/image10.png" alt="生态大会主图" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p1',3)"><img src="images/portfolio/image13.jpeg" alt="大会现场" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p1',5)"><img src="images/portfolio/image15.png" alt="数据展示" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-chip">现场统筹 · 700人</div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p1',1)"><img src="images/portfolio/p1-beijing.jpg.png" alt="北京心动好乐Day" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p1',2)"><img src="images/portfolio/p1-guangzhou.jpg.png" alt="广州心动好乐Day" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p1',0)"><img src="images/portfolio/p1-seating.jpg.png" alt="700人大会座位平面图" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p1',3)"><img src="images/portfolio/image13.jpeg" alt="大会现场" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p1',4)"><img src="images/portfolio/image15.png" alt="数据展示" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-chip">700人统筹 · 4亿曝光</div>
             </div>
           </div>
         </div>
@@ -542,7 +633,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
             </div>
             <h3 class="project-title">"新开百万"销售激励项目</h3>
             <p class="project-subtitle">"资源集中度，决定了增长的加速度"</p>
-            <p class="project-desc">游玩行业KA团队启动"新开百万"项目，推动销售从"单纯拉新"转向"带出高质量新开商家"。搭建S/A/B三级销售识别体系、P0/P1/P2公海商家联动机制、三类定制化权益与月度PK闭环，4个月累计覆盖662家新开百万商家。</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">游玩行业KA团队启动"新开百万"项目，推动销售从"单纯拉新数量"转向"带出高质量新开商家"，需要建立从识别到复盘的完整运营闭环，让资源向高潜力商家和高绩效销售集中。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">四步闭环驱动增长：①S/A/B三级销售识别体系（S级百万销售享完整权益/A级重点培育/B级保留广泛激励）；②P0/P1/P2三档公海商家分级联动（P0共1.37万家优先倾斜S级销售）；③三类定制化权益（轮训+案例分享/流量包+1v1陪跑/差异化提报名额）；④月度PK+节点跟踪+复盘迭代。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">项目启动后商家数从5月83家跃升至7月254家（+206%），GMV从2.61亿提升至8.76亿（+236%）；4个月累计覆盖662家新开百万商家，累计贡献GMV 22.83亿，销售团队行为与公司增长目标高度对齐。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num green">+206%</div>
@@ -558,12 +662,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image16.png","image17.png","image18.jpeg","image19.png","image20.jpeg","image21.jpeg"]'>
+          <div class="project-visual" data-images='["image20.jpeg","image18.jpeg","image19.png","image21.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p2',0)"><img src="images/portfolio/image16.png" alt="新开百万主图" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p2',2)"><img src="images/portfolio/image18.jpeg" alt="激励数据" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p2',3)"><img src="images/portfolio/image19.png" alt="增长趋势" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-chip">销售增长 · +236%</div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p2',0)" style="width: 209.284px; height: 434.252px;top:66.484px;left:177.69px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image20.jpeg" alt="新开百万增长数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p2',1)"><img src="images/portfolio/image18.jpeg" alt="销售激励数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p2',2)"><img src="images/portfolio/image19.png" alt="商家增长趋势" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p2',3)" style="width: 109.91px; height: 202.6px;top:65.5988px;left:402.69px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image21.jpeg" alt="运营策略说明" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-chip">商家+206% · GMV+236%</div>
             </div>
           </div>
         </div>
@@ -578,7 +683,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               <span class="project-tag tag-2">Babycare · 电商运营</span>
             </div>
             <h3 class="project-title">童装亲子专场达播矩阵</h3>
-            <p class="project-desc">大促前以"亲子专场"切入童装类目，采用"超头引爆+KOL矩阵承接"策略：超头负责"爆"，用新品灯笼裤快速起量；KOL负责"稳"，矩阵化投放覆盖不同圈层。差异化物料准备，200+条短视频统一审核管控。</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">大促前以"亲子专场"切入童装类目，目标拉高四月品牌流量：灯笼裤单品产出20w+、亲子专场+核心品类销量100w+；利润率要求大促10%+、日常15%+，同时完成老款日常装清仓。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">三大策略组合：①达人矩阵：超头引爆+KOL矩阵承接，超头用新品灯笼裤快速起量制造爆款认知，KOL矩阵化投放覆盖不同圈层拉长转化周期；②选品策略：爆品聚焦（灯笼裤）+品类组合（防晒衣/斗篷），超头S+定价制造价格优势，KOL无坑位费纯佣金降低合作门槛；③运营保障：差异化物料分层准备，设计-运营-供应链同步联动，200+条短视频统一审核发布和评论区管控。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">三月份KOL和超头直播矩阵总共直播32场，共计产出GMV 66万，利润率在12%以上，同时完成了老款清仓目标，通过超头+矩阵的组合既打爆了新品又沉淀了品牌内容资产。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num pink">66万</div>
@@ -594,12 +712,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image24.png","image25.png","image22.jpeg","image23.jpeg","image26.jpeg","image27.jpeg","image28.png","image29.png"]'>
+          <div class="project-visual" data-images='["image26.jpeg","image25.png","image28.png","image24.png","image27.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p3',0)"><img src="images/portfolio/image24.png" alt="达播矩阵主图" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p3',1)"><img src="images/portfolio/image25.png" alt="直播数据" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p3',6)"><img src="images/portfolio/image28.png" alt="直播间" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-chip">达播矩阵 · 66万GMV</div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p3',1)"><img src="images/portfolio/image26.jpeg" alt="直播带货1" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p3',3)"><img src="images/portfolio/image25.png" alt="直播数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p3',4)"><img src="images/portfolio/image28.png" alt="直播间" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p3',0)"><img src="images/portfolio/image24.png" alt="达播矩阵主图" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p3',2)" style="width: 97.7646px; height: 176.491px;top:303.067px;left:418.688px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image27.jpeg" alt="直播带货2" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-chip">32场直播 · 66万GMV</div>
             </div>
           </div>
         </div>
@@ -614,8 +734,21 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               <span class="project-tag tag-1">Babycare · 用户洞察</span>
             </div>
             <h3 class="project-title">春季爬服上市差评优化</h3>
-            <p class="project-subtitle">"42%的差评，不是产品的问题，是表达的问题"</p>
-            <p class="project-desc">春季新款婴儿爬服创新采用"分阶设计"但转化率低于预期。采集327条评价+89条客服记录，定向问卷214份定位根因（仅18%用户知道分阶设计），跨部门推动主图、详情页、标题视觉优化。</p>
+            <p class="project-subtitle">"42%的差评，不是产品的问题，是表达的问题——用数据让设计'听懂'用户。"</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">春季新款婴儿爬服创新采用"分阶设计"（躺卧期/爬行期/学步期，版型差异化），上架后流量尚可但转化率远低于预期；核心矛盾：设计团队认为"分阶"概念已清晰 ↔ 运营团队认为消费者看不懂，双方各执一词。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">搭建"差评归因→假设验证→视觉优化"流程：①数据采集：采集327条评价+89条客服记录，归纳四大差评类型；②根因验证：定向问卷回收214份，发现仅18%用户知道分阶设计、53%完全没注意到、29%看到但没看懂，根因定位为主图同模特同角度、详情页分阶说明在底部纯文字、标题未突出"分阶"；③跨部门推动：用数据打破主观判断，调整标题嵌入"分阶款"+三阶段关键词，详情页将分阶说明前置第二屏+图文对比+选款指南。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">支付转化率提升26%，详情页停留时长增加59%，分阶认知差评占比下降55%，"款式区别"相关客服咨询量减少44%，用直接数据证据成功推动设计团队优化页面表达，产品价值被用户正确感知。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num green">+26%</div>
@@ -631,23 +764,23 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image35.png","image30.png","image31.jpeg","image32.jpeg","image33.jpeg","image34.jpeg","image36.png"]'>
+          <div class="project-visual" data-images='["image70.png","p4-main.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p4',0)"><img src="images/portfolio/image35.png" alt="差评优化主图" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p4',1)" style="width: 393.764px; height: 264.357px;top:105.486px;left:191.883px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image70.png" alt="优化后页面" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
 
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p4',1)"><img src="images/portfolio/image30.png" alt="详情页优化" loading="lazy"><div class="bento-overlay"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p4',0)" style="width: 144.15px; height: 280.528px;top:-48.5787px;left:53.1131px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/p4-main.png" alt="爬服差评优化主图" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
 
-              <div class="pie-chart-wrap bento-sub1" style="width:33%;height:38%;bottom:10%;left:0;transform:rotate(3deg)" data-pie="p4">
+              <div class="pie-chart-wrap bento-sub1" data-pie="p4" style="width: 30%; height: 45%; bottom: 5%; left: 0px;right:auto">
                 <div class="pie-title">差评原因分布</div>
                 <div class="pie-subtitle">n=327 条评价分析</div>
                 <svg class="pie-svg" viewBox="0 0 120 120" id="pie-svg-p4">
-                  <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="22"/>
-                  <g id="pie-segments-p4"></g>
-                  <circle cx="60" cy="60" r="28" fill="#1a1a2e"/>
+                  <circle cx="60" cy="60" r="50" fill="none" stroke="rgba(0,0,0,0.05)" stroke-width="22"></circle>
+                  <g id="pie-segments-p4"><path d="M60 10 A50 50 0 0 1 84.08768370508578 103.81533400219317 L60 60 Z" fill="#FF6B6B" class="pie-segment" data-pct="42" data-label="分阶认知不清"></path><path d="M84.08768370508578 103.81533400219317 A50 50 0 0 1 19.549150281252636 89.38926261462366 L60 60 Z" fill="#FFB347" class="pie-segment" data-pct="23" data-label="尺码预期不符"></path><path d="M19.549150281252636 89.38926261462366 A50 50 0 0 1 12.447174185242325 44.549150281252615 L60 60 Z" fill="#FFD93D" class="pie-segment" data-pct="15" data-label="颜色款式差异"></path><path d="M12.447174185242325 44.549150281252615 A50 50 0 0 1 35.9123162949142 16.184665997806846 L60 60 Z" fill="#6BCB77" class="pie-segment" data-pct="12" data-label="面料质感问题"></path><path d="M35.9123162949142 16.184665997806846 A50 50 0 0 1 59.99999999999999 10 L60 60 Z" fill="#4D96FF" class="pie-segment" data-pct="8" data-label="其他原因"></path></g>
+                  <circle cx="60" cy="60" r="28" fill="#ffffff"></circle>
                   <text class="pie-center-text" id="pie-center-pct-p4" x="60" y="58">42%</text>
                   <text class="pie-center-label" id="pie-center-label-p4" x="60" y="72">核心问题</text>
                 </svg>
-                <div class="pie-legend" id="pie-legend-p4"></div>
+                <div class="pie-legend" id="pie-legend-p4"><div class="pie-legend-item"><div class="pie-legend-dot" style="background:#FF6B6B"></div><span class="pie-legend-text">分阶</span></div><div class="pie-legend-item"><div class="pie-legend-dot" style="background:#FFB347"></div><span class="pie-legend-text">尺码</span></div><div class="pie-legend-item"><div class="pie-legend-dot" style="background:#FFD93D"></div><span class="pie-legend-text">颜色</span></div><div class="pie-legend-item"><div class="pie-legend-dot" style="background:#6BCB77"></div><span class="pie-legend-text">面料</span></div><div class="pie-legend-item"><div class="pie-legend-dot" style="background:#4D96FF"></div><span class="pie-legend-text">其他</span></div></div>
                 <div class="pie-tooltip" id="pie-tooltip-p4"></div>
               </div>
 
@@ -667,7 +800,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
             </div>
             <h3 class="project-title">会话智能AI产品迭代</h3>
             <p class="project-subtitle">从"技术导向"到"业务导向"的用户驱动型产品重塑</p>
-            <p class="project-desc">针对销售画像"不够精准"、报表"太技术化"、培训60%时间花在教操作等问题，深度访谈25人+现场跟岗+行为数据分析，主导界面重构PRD撰写，用调研数据打破主观判断，组织共创Workshop替代评审会。</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">产品面临三方困境：用户侧——销售认为画像"不够精准"，管理者觉得报表"太技术化"，客户成功团队60%培训时间花在教操作而非讲价值；内部侧——产品经理主张功能加法，UI认为设计无需大改，研发担心改动影响系统稳定性；决策侧——缺乏一手用户数据支撑"改什么、怎么改"，迭代方案迟迟无法敲定。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">四步推进：①用户调研：深度访谈25人+现场跟岗+行为数据分析，定位信息呈现与用户心智模型不匹配问题；②PRD撰写：主导界面重构，从"技术指标堆砌"改为"业务导向"的信息架构；③跨部门协同：用调研数据+录屏原文打破主观判断，组织共创Workshop替代传统评审会，MVP分阶段迭代降低风险感知；④AI Studio视觉优化：设计稿当天生成可交互原型快速验证。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">头部合资车企试用后主动从区域200+门店扩展至全国1000+门店；客户培训时长降低30%；"用户调研→共创工作坊→AI原型验证"流程固化为公司产品迭代标准SOP，推动产品从技术视角转向真正的业务价值视角。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num green">1000+</div>
@@ -683,12 +829,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image37.png","image38.jpeg","image39.png","image40.png","image41.jpeg","image42.jpeg","image43.png"]'>
+          <div class="project-visual" data-images='["image39.png","image40.png","image38.jpeg","image41.jpeg","image42.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p5',0)"><img src="images/portfolio/image37.png" alt="AI产品迭代主图" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p5',2)"><img src="images/portfolio/image39.png" alt="产品界面" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p5',6)"><img src="images/portfolio/image43.png" alt="迭代成果" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-chip">产品迭代 · 1000+门店</div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p5',0)" style="width: 377.347px; height: 270.123px;top:94.2527px;left:113.654px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image39.png" alt="AI产品界面" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p5',1)" style="top:12px;left:430px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image40.png" alt="产品迭代成果" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p5',2)" style="width: 302.121px; height: 125.229px;top:345.994px;left:231.079px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image38.jpeg" alt="用户调研" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p5',3)" style="width: 158.822px; height: 94.4224px;top:50.5845px;left:-1.74835px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image41.jpeg" alt="Workshop共创" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p5',4)" style="width: 162.728px; height: 133.637px;top:157.403px;left:-5.4149px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image42.jpeg" alt="产品原型" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-chip">200→1000+门店 · -30%培训时长</div>
             </div>
           </div>
         </div>
@@ -703,7 +851,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               <span class="project-tag tag-4">孩子王 · 品类运营</span>
             </div>
             <h3 class="project-title">双十一纸品选品与品类优化</h3>
-            <p class="project-desc">针对纸品单价低、利润薄、销量上不去的问题，搭建金字塔选品模型（引流款/主推款/利润款），按双十一节奏设计预热期-爆发期-返场期价格与促销机制，推出1元秒杀带动全店访客，组合装拉升客单价。</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">纸品品类单价低、利润薄，销量始终提不上去；两大核心问题：缺少有竞争力的价格体系，单一选品策略无法覆盖全域用户需求，大促期间流量利用率低。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">两大核心策略：①金字塔选品模型——选择市场认知度高、价格透明的单品作为引流款冲量，用覆盖主流价格带、规格齐全的主推款做核心销售，针对品质用户推出利润款提升毛利；②全周期价格促销机制——预热期采用纸品品类日预告+1元秒杀种草，品类爆发期提报1元抢纸品+第2件5折活动，11.1-11.11期间推纸品组合装+连带组合销售拉升客单价，返场期参与内部爆款返场+临期品特价活动。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">1元秒杀带动全店访客环比+120%，为纸尿裤等主力品类导入大量新客；"纸尿裤+纸品"联动组合贡献纸品42%销售额，连带率从45%提升至73%；自有品牌贝特倍护纸品双十一同比增长89%，占品类销售额31%；四层价格体系推动客单价从180元提升至320元。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num gold">+120%</div>
@@ -719,12 +880,14 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image45.png","image47.png","image44.png","image46.png","image48.png","image49.png","image50.png","image51.png"]'>
+          <div class="project-visual" data-images='["image45.png","image47.png","image46.png","image48.png","image49.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p6',0)"><img src="images/portfolio/image45.png" alt="双11选品主图" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p6',1)"><img src="images/portfolio/image47.png" alt="选品模型" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p6',2)"><img src="images/portfolio/image44.png" alt="销售数据" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-chip">双11大促 · 客单价180→320</div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p6',1)" style="width: 172.496px; height: 364.701px;top:35.262px;left:167.936px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image45.png" alt="双11促销活动" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p6',0)" style="width: 167.145px; height: 256.523px;top:236.795px;left:-7.0632px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image47.png" alt="金字塔选品模型" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p6',2)" style="width: 159.087px; height: 129.758px;top:3.2002px;left:375.445px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image46.png" alt="促销价格体系" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p6',3)" style="width: 175px; height: 262.357px;top:220.15px;left:364.102px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image48.png" alt="1元秒杀活动" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p6',4)"><img src="images/portfolio/image49.png" alt="组合销售数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-chip">访客+120% · 客单价180→320</div>
             </div>
           </div>
         </div>
@@ -739,7 +902,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               <span class="project-tag tag-2">不息 · 内容营销</span>
             </div>
             <h3 class="project-title">卫龙小红书达人种草全案</h3>
-            <p class="project-desc">紧扣卫龙"年轻化社交货币"定位，聚焦猎奇-场景-情怀三大方向，搭建金字塔达人矩阵（头部3人+腰部10人+尾部30人+素人100人），预算15.3万。建立标准化审核SOP与双返点机制，素人置换+精准投流控制成本。</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">紧扣卫龙"年轻化社交货币"品牌定位，聚焦猎奇-场景-情怀三大内容方向，总预算15.3万，需要在小红书平台完成达人筛选、内容共创、审核发布全流程代理，实现品牌声量与内容质量双提升。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">四大模块闭环：①达人矩阵搭建——按金字塔模型筛选签约：头部3人+腰部10人+尾部30人+素人100人，通过蒲公英、千瓜、新红搜索"美食测评""辣条测评"等关键词初筛300+潜在达人；②Brief共创——明确六大核心模块（产品卖点/三大选题/内容红线/格式规范/集中排期/素材授权），组织线上共创会，"给方向不给脚本"确保达人内容真实感与差异化；③标准化审核SOP——达人提稿(5个工作日)→媒介初审(24h内核查卖点/禁忌词/格式)→客户复审(48h内确认调性)→修改定稿(3工作日)→发布上线；④成本管控——双返点机制（达人15-30%+机构5-8%）协议化锁定，素人置换+小额费用，投流精准聚焦爆文潜质笔记。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">总曝光量达1280万（超目标+28%），总互动量41.6万（超目标+39%），爆文率22%（产出11篇爆文，超目标+47%）；达人净成本仅13.4万（占总预算13.4%），通过精准成本管控实现了高ROI的内容投放。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num pink">1280万</div>
@@ -755,12 +931,13 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image52.png","image53.png","image54.png","image55.png","image56.png","image57.png"]'>
+          <div class="project-visual" data-images='["image54.png","image53.png","image56.png","image55.png"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p7',0)"><img src="images/portfolio/image52.png" alt="卫龙种草主图" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p7',3)"><img src="images/portfolio/image55.png" alt="笔记内容" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p7',1)"><img src="images/portfolio/image53.png" alt="数据看板" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-chip">小红书种草 · 1280万曝光</div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p7',1)" style="width: 217.025px; height: 343.284px;top:-0.5808px;left:117.415px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image54.png" alt="种草笔记" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p7',0)" style="width: 139.071px; height: 243.641px;top:-7.75513px;left:391.339px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image53.png" alt="达人矩阵数据" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p7',3)" style="width: 162.039px; height: 183.963px;top:254.151px;left:335.38px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image56.png" alt="数据成果" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p7',2)" style="width: 111.733px; height: 151.541px;top:65.5195px;left:-6.0462px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image55.png" alt="爆文案例" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-chip">1280万曝光 · 22%爆文率</div>
             </div>
           </div>
         </div>
@@ -776,7 +953,20 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
             </div>
             <h3 class="project-title">小红书企业号运营破局</h3>
             <p class="project-subtitle">从蓝V限流到爆款内容破局</p>
-            <p class="project-desc">新式营养品牌企业号面临蓝V限流（首页推荐不足20%）、功能性产品不能直宣功效、5条产品线目标人群各异三大难题。采用知识科普卡片动画图文破解限流、时间测试法找到"爆款时刻"、70%干货+30%转化系统性运营。</p>
+            <div class="project-bsframe">
+              <div class="bs-item">
+                <span class="bs-label bg">背景</span>
+                <span class="bs-text">新式营养品牌Minayo势能强劲，但企业号运营面临三大难题：①合规红线——功能性产品不能直接宣称功效，内容创作受限；②蓝V限流——蓝V标识导致首页推荐占比不足20%，自然流量被压制；③内容统筹——5条产品线目标人群各异，内容规划难度大，难以形成系统性运营。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label str">策略</span>
+                <span class="bs-text">三大破局策略：①内容形式破限流——用知识科普卡片+动画图文形式输出内容，以"专业感"破解蓝V限流魔咒，避免硬广式表达；②爆款方法论——通过时间测试法找到解酒软糖等产品的"爆款时刻"，总结可复制的内容创作规律；③系统性内容架构——采用70%干货科普+30%商业转化的内容配比，对5条产品线进行差异化但统一的内容规划，既保证账号专业人设又兼顾商业转化。</span>
+              </div>
+              <div class="bs-item">
+                <span class="bs-label res">成果</span>
+                <span class="bs-text">企业号月均自然曝光提升70%，笔记平均互动率大幅增长280%，首页推荐占比提升30%（成功突破蓝V限流），企业号粉丝月均增长110%，验证了功能性产品在合规前提下做内容增长的可行路径。</span>
+              </div>
+            </div>
             <div class="project-metrics">
               <div class="metric">
                 <div class="metric-num green">+70%</div>
@@ -792,12 +982,15 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
               </div>
             </div>
           </div>
-          <div class="project-visual" data-images='["image66.png","image58.jpeg","image59.jpeg","image60.jpeg","image61.jpeg","image62.jpeg","image63.jpeg","image64.jpeg","image65.png"]'>
+          <div class="project-visual" data-images='["image59.jpeg","image63.jpeg","image60.jpeg","image61.jpeg","image62.jpeg","image64.jpeg"]'>
             <div class="bento-grid">
-              <div class="bento-img bento-main" onclick="openLightboxAt('p8',0)"><img src="images/portfolio/image66.png" alt="Minayo运营主图" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub1" onclick="openLightboxAt('p8',8)"><img src="images/portfolio/image65.png" alt="数据增长" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-img bento-sub2" onclick="openLightboxAt('p8',1)"><img src="images/portfolio/image58.jpeg" alt="笔记作品" loading="lazy"><div class="bento-overlay"></div></div>
-              <div class="bento-chip">企业号增长 · +280%互动</div>
+              <div class="bento-img bento-main" onclick="openLightboxAt('p8',5)" style="width: 231.05px; height: 453.9px;top:-72.6367px;left:149.128px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image59.jpeg" alt="数据增长" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub1" onclick="openLightboxAt('p8',1)"><img src="images/portfolio/image63.jpeg" alt="知识科普卡片" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub2" onclick="openLightboxAt('p8',4)" style="width: 133.985px; height: 255.04px;top:16.7925px;left:402.316px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image60.jpeg" alt="爆款案例" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub3" onclick="openLightboxAt('p8',3)" style="width: 104.733px; height: 174.6px;top:281.253px;left:-5.53462px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image61.jpeg" alt="动画图文" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub4" onclick="openLightboxAt('p8',0)" style="width: 115.815px; height: 184.414px;top:314.73px;left:381.295px;right:auto;bottom:auto;transform:rotate(0)"><img src="images/portfolio/image62.jpeg" alt="Minayo爆款内容" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-img bento-sub5" onclick="openLightboxAt('p8',2)"><img src="images/portfolio/image64.jpeg" alt="笔记作品" loading="lazy"><div class="bento-overlay"></div><div class="resize-handle"></div></div>
+              <div class="bento-chip">曝光+70% · 互动+280%</div>
             </div>
           </div>
         </div>
@@ -894,10 +1087,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
   <button class="lightbox-close" onclick="closeLightbox()">✕</button>
-  <button class="lightbox-nav lightbox-prev" onclick="navLightbox(-1);event.stopPropagation()">‹</button>
   <img class="lightbox-img" id="lightbox-img" src="">
-  <button class="lightbox-nav lightbox-next" onclick="navLightbox(1);event.stopPropagation()">›</button>
-  <div class="lightbox-counter" id="lightbox-counter"></div>
 </div>
 
 <script>
@@ -921,37 +1111,23 @@ let currentGal=null;
 let currentIdx=0;
 
 function openLightboxAt(gid,idx){
-  currentGal=gid;
-  currentIdx=idx;
+  const container=event.currentTarget;
+  const clickedImg=container.querySelector('img');
+  if(!clickedImg)return;
+  const img=document.getElementById('lightbox-img');
+  img.src=clickedImg.src;
+  img.alt=clickedImg.alt;
   document.getElementById('lightbox').classList.add('open');
   document.body.style.overflow='hidden';
-  updateLightbox();
 }
 function closeLightbox(e){
   if(e&&e.target!==e.currentTarget&&!e.target.classList.contains('lightbox-close'))return;
   document.getElementById('lightbox').classList.remove('open');
   document.body.style.overflow='';
 }
-function navLightbox(dir){
-  const imgs=galleries[currentGal];
-  currentIdx=((currentIdx+dir)%imgs.length+imgs.length)%imgs.length;
-  updateLightbox();
-}
-function updateLightbox(){
-  const imgs=galleries[currentGal];
-  const img=document.getElementById('lightbox-img');
-  img.style.opacity=0;
-  setTimeout(()=>{
-    img.src='images/portfolio/'+imgs[currentIdx];
-    img.onload=()=>{img.style.opacity=1};
-  },150);
-  document.getElementById('lightbox-counter').textContent=(currentIdx+1)+' / '+imgs.length;
-}
 document.addEventListener('keydown',function(e){
   if(!document.getElementById('lightbox').classList.contains('open'))return;
   if(e.key==='Escape')closeLightbox();
-  if(e.key==='ArrowLeft')navLightbox(-1);
-  if(e.key==='ArrowRight')navLightbox(1);
 });
 
 document.querySelectorAll('.bento-img').forEach(img=>{
@@ -1092,6 +1268,335 @@ document.querySelectorAll('.pie-chart-wrap').forEach(wrap=>{
     this.style.zIndex='';
   });
 });
+</script>
+
+<div class="edit-indicator">✏️ 编辑模式已开启 — 拖拽图片调整位置 · 双击文字编辑内容</div>
+
+<div class="edit-fab" id="editFab">
+  <button class="fab-toggle" onclick="toggleEdit()">
+    <span>✏️</span><span class="fab-text">编辑模式</span>
+  </button>
+  <div class="fab-tools">
+    <button class="fab-tool fab-save" onclick="exportHTML()">
+      <span>💾</span><span>导出HTML</span>
+    </button>
+    <button class="fab-tool" onclick="toggleImageLocks()">
+      <span>🔀</span><span id="lockText">交换图片</span>
+    </button>
+    <button class="fab-tool" id="freeLayoutBtn" onclick="toggleFreeLayout()">
+      <span>📐</span><span id="freeLayoutText">自由布局</span>
+    </button>
+    <button class="fab-tool fab-reset" onclick="resetEdits()">
+      <span>↩️</span><span>重置修改</span>
+    </button>
+  </div>
+</div>
+
+<script>
+let editMode=false;
+let dragEnabled=false;
+let freeLayout=false;
+let draggedEl=null;
+let dragGhost=null;
+let edits={images:{},text:{},layout:{}};
+
+let freeDragEl=null;
+let freeDragStartX=0,freeDragStartY=0;
+let freeDragOrigLeft=0,freeDragOrigTop=0;
+
+let resizeEl=null;
+let resizeStartX=0,resizeStartY=0;
+let resizeOrigW=0,resizeOrigH=0;
+
+function initResizeHandles(){
+  document.querySelectorAll('.bento-img').forEach(el=>{
+    if(el.querySelector('.resize-handle'))return;
+    if(el.classList.contains('pie-chart-wrap'))return;
+    const h=document.createElement('div');
+    h.className='resize-handle';
+    h.addEventListener('mousedown',startResize);
+    el.appendChild(h);
+    
+    el.addEventListener('mousedown',startFreeDrag);
+  });
+}
+
+function toggleEdit(){
+  editMode=!editMode;
+  document.body.classList.toggle('edit-mode',editMode);
+  document.getElementById('editFab').classList.toggle('active',editMode);
+  document.querySelector('.fab-text').textContent=editMode?'关闭编辑':'编辑模式';
+  document.querySelector('.edit-indicator').textContent=freeLayout?'📐 自由布局模式 — 拖拽图片移动 · 右下角蓝点调整大小 · 双击文字编辑':'✏️ 编辑模式已开启 — 点击「交换图片」或「自由布局」开始编辑 · 双击文字编辑内容';
+  if(!editMode){
+    if(dragEnabled)toggleImageLocks();
+    if(freeLayout)toggleFreeLayout();
+  }else{
+    initResizeHandles();
+  }
+}
+
+function toggleImageLocks(){
+  if(freeLayout)toggleFreeLayout();
+  dragEnabled=!dragEnabled;
+  document.getElementById('lockText').textContent=dragEnabled?'🔒 锁定交换':'🔀 交换图片';
+  document.querySelectorAll('.bento-img').forEach(el=>{
+    if(dragEnabled&&!el.classList.contains('pie-chart-wrap')){
+      el.setAttribute('draggable','true');
+      el.classList.remove('free-move');
+    }else{
+      el.removeAttribute('draggable');
+    }
+  });
+}
+
+function toggleFreeLayout(){
+  if(dragEnabled)toggleImageLocks();
+  freeLayout=!freeLayout;
+  document.getElementById('freeLayoutText').textContent=freeLayout?'🔙 退出自由':'📐 自由布局';
+  const btn=document.getElementById('freeLayoutBtn');
+  btn.style.background=freeLayout?'linear-gradient(135deg,#5B5BD6,#8B5CF6)':'';
+  btn.style.color=freeLayout?'#fff':'';
+  
+  document.querySelectorAll('.bento-img').forEach(el=>{
+    if(el.classList.contains('pie-chart-wrap'))return;
+    el.classList.toggle('free-move',freeLayout);
+    el.removeAttribute('draggable');
+  });
+  
+  document.querySelector('.edit-indicator').textContent=freeLayout?'📐 自由布局模式 — 拖拽图片移动位置 · 右下角蓝点拖拽调整大小 · 双击文字编辑':'✏️ 编辑模式已开启 — 点击「交换图片」或「自由布局」开始编辑 · 双击文字编辑内容';
+}
+
+function startFreeDrag(e){
+  if(!freeLayout)return;
+  if(e.target.classList.contains('resize-handle'))return;
+  if(e.target.closest('.resize-handle'))return;
+  
+  freeDragEl=e.currentTarget;
+  const bento=freeDragEl.closest('.bento-grid');
+  const rect=freeDragEl.getBoundingClientRect();
+  const parentRect=bento.getBoundingClientRect();
+  
+  freeDragStartX=e.clientX;
+  freeDragStartY=e.clientY;
+  freeDragOrigLeft=parseFloat(freeDragEl.style.left||freeDragEl.offsetLeft);
+  freeDragOrigTop=parseFloat(freeDragEl.style.top||freeDragEl.offsetTop);
+  
+  freeDragEl.style.zIndex=100;
+  document.body.style.userSelect='none';
+  e.preventDefault();
+}
+
+document.addEventListener('mousemove',function(e){
+  if(freeDragEl){
+    const dx=e.clientX-freeDragStartX;
+    const dy=e.clientY-freeDragStartY;
+    freeDragEl.style.left=(freeDragOrigLeft+dx)+'px';
+    freeDragEl.style.top=(freeDragOrigTop+dy)+'px';
+    freeDragEl.style.right='auto';
+    freeDragEl.style.bottom='auto';
+    freeDragEl.style.transform='rotate(0)';
+  }
+  if(resizeEl){
+    const dx=e.clientX-resizeStartX;
+    const dy=e.clientY-resizeStartY;
+    const newW=Math.max(80,resizeOrigW+dx);
+    const newH=Math.max(80,resizeOrigH+dy);
+    resizeEl.style.width=newW+'px';
+    resizeEl.style.height=newH+'px';
+    resizeEl.style.right='auto';
+    resizeEl.style.bottom='auto';
+  }
+});
+
+document.addEventListener('mouseup',function(){
+  if(freeDragEl){
+    freeDragEl.style.zIndex='';
+    freeDragEl=null;
+    document.body.style.userSelect='';
+  }
+  if(resizeEl){
+    resizeEl.classList.remove('resizing');
+    resizeEl=null;
+    document.body.style.userSelect='';
+  }
+});
+
+function startResize(e){
+  if(!editMode)return;
+  e.stopPropagation();
+  e.preventDefault();
+  
+  resizeEl=e.target.closest('.bento-img');
+  if(!resizeEl)return;
+  
+  resizeEl.classList.add('resizing');
+  const rect=resizeEl.getBoundingClientRect();
+  resizeStartX=e.clientX;
+  resizeStartY=e.clientY;
+  resizeOrigW=rect.width;
+  resizeOrigH=rect.height;
+  resizeEl.style.left=rect.left-resizeEl.closest('.bento-grid').getBoundingClientRect().left+'px';
+  resizeEl.style.top=rect.top-resizeEl.closest('.bento-grid').getBoundingClientRect().top+'px';
+  resizeEl.style.right='auto';
+  resizeEl.style.bottom='auto';
+  resizeEl.style.transform='rotate(0)';
+  document.body.style.userSelect='none';
+}
+
+document.addEventListener('dragstart',function(e){
+  if(!dragEnabled||!e.target.closest('.bento-img'))return;
+  draggedEl=e.target.closest('.bento-img');
+  draggedEl.classList.add('dragging');
+  
+  const rect=draggedEl.getBoundingClientRect();
+  dragGhost=document.createElement('div');
+  dragGhost.className='drag-ghost';
+  const img=draggedEl.querySelector('img');
+  if(img){
+    const ghostImg=document.createElement('img');
+    ghostImg.src=img.src;
+    ghostImg.style.width=Math.min(rect.width,250)+'px';
+    dragGhost.appendChild(ghostImg);
+  }
+  document.body.appendChild(dragGhost);
+  e.dataTransfer.effectAllowed='move';
+  e.dataTransfer.setDragImage(new Image(),0,0);
+});
+
+document.addEventListener('drag',function(e){
+  if(!dragGhost)return;
+  dragGhost.style.left=e.clientX+20+'px';
+  dragGhost.style.top=e.clientY-20+'px';
+});
+
+document.addEventListener('dragover',function(e){
+  if(!dragEnabled||!draggedEl)return;
+  e.preventDefault();
+  const target=e.target.closest('.bento-img');
+  document.querySelectorAll('.bento-img.drag-over').forEach(el=>el.classList.remove('drag-over'));
+  if(target&&target!==draggedEl&&target.closest('.project-visual')===draggedEl.closest('.project-visual')){
+    target.classList.add('drag-over');
+  }
+});
+
+document.addEventListener('drop',function(e){
+  if(!dragEnabled||!draggedEl)return;
+  e.preventDefault();
+  const target=e.target.closest('.bento-img');
+  if(target&&target!==draggedEl&&target.closest('.project-visual')===draggedEl.closest('.project-visual')){
+    swapImages(draggedEl,target);
+  }
+  cleanupDrag();
+});
+
+document.addEventListener('dragend',cleanupDrag);
+
+function cleanupDrag(){
+  if(draggedEl)draggedEl.classList.remove('dragging');
+  document.querySelectorAll('.bento-img.drag-over').forEach(el=>el.classList.remove('drag-over'));
+  if(dragGhost){dragGhost.remove();dragGhost=null;}
+  draggedEl=null;
+}
+
+function swapImages(a,b){
+  const aImg=a.querySelector('img');
+  const bImg=b.querySelector('img');
+  if(!aImg||!bImg)return;
+  
+  const aSrc=aImg.src;
+  const aAlt=aImg.alt;
+  const aOnclick=a.getAttribute('onclick');
+  
+  aImg.src=bImg.src;
+  aImg.alt=bImg.alt;
+  a.setAttribute('onclick',b.getAttribute('onclick'));
+  
+  bImg.src=aSrc;
+  bImg.alt=aAlt;
+  b.setAttribute('onclick',aOnclick);
+  
+  const project=a.closest('.project-visual');
+  const projectId=project.id||'p'+Array.from(document.querySelectorAll('.project-visual')).indexOf(project);
+  edits.images[projectId]=edits.images[projectId]||[];
+  edits.images[projectId].push({time:Date.now(),swap:true});
+}
+
+document.addEventListener('dblclick',function(e){
+  if(!editMode)return;
+  const editable=e.target.closest('.project-title,.project-subtitle,.bs-text,.metric-num,.metric-label,.hero-title,.hero-sub,.stat-num,.stat-label,.section-title');
+  if(!editable)return;
+  
+  e.preventDefault();
+  e.stopPropagation();
+  
+  if(editable.querySelector('textarea'))return;
+  
+  const originalText=editable.textContent.trim();
+  const originalDisplay=editable.style.display;
+  
+  const textarea=document.createElement('textarea');
+  textarea.className='inline-editor';
+  textarea.value=originalText;
+  textarea.style.minHeight=editable.offsetHeight+'px';
+  
+  const save=function(){
+    const newText=textarea.value.trim();
+    if(newText&&newText!==originalText){
+      editable.textContent=newText;
+      edits.text[editable.textContent.substring(0,20)]={original:originalText,new:newText};
+    }else{
+      editable.textContent=originalText;
+    }
+    textarea.remove();
+    editable.style.display=originalDisplay;
+  };
+  
+  textarea.addEventListener('blur',save);
+  textarea.addEventListener('keydown',function(ev){
+    if(ev.key==='Enter'&&!ev.shiftKey){ev.preventDefault();save();}
+    if(ev.key==='Escape'){textarea.value=originalText;save();}
+  });
+  
+  editable.style.display='block';
+  editable.innerHTML='';
+  editable.appendChild(textarea);
+  textarea.focus();
+  textarea.select();
+});
+
+function exportHTML(){
+  const cleanHtml=document.documentElement.outerHTML
+    .replace(/<script[\s\S]*?<\/script>/gi,'')
+    .replace(/<div class="edit-indicator"[\s\S]*?<\/div>/g,'')
+    .replace(/<div class="edit-fab"[\s\S]*?<\/div>\s*<\/div>/g,'')
+    .replace(/<div class="resize-handle"><\/div>/g,'')
+    .replace(/\sclass="[^"]*free-move[^"]*"/g,'')
+    .replace(/\sclass="[^"]*resizing[^"]*"/g,'');
+  
+  const blob=new Blob(['<!DOCTYPE html>\n'+cleanHtml],{type:'text/html;charset=utf-8'});
+  const url=URL.createObjectURL(blob);
+  const a=document.createElement('a');
+  a.href=url;
+  a.download='汪星妤-作品集-编辑版.html';
+  a.click();
+  URL.revokeObjectURL(url);
+  
+  showToast('✅ HTML已下载！自由布局的修改已保存');
+}
+
+function resetEdits(){
+  if(confirm('确定要重置所有修改吗？这将刷新页面恢复原状。')){
+    window.location.reload();
+  }
+}
+
+function showToast(msg){
+  const t=document.createElement('div');
+  t.style.cssText='position:fixed;top:80px;left:50%;transform:translateX(-50%);background:rgba(16,185,129,0.95);color:#fff;padding:12px 24px;border-radius:12px;font-size:14px;font-weight:600;z-index:10001;box-shadow:0 8px 30px rgba(0,0,0,0.15);backdrop-filter:blur(12px)';
+  t.textContent=msg;
+  document.body.appendChild(t);
+  setTimeout(()=>{t.style.opacity='0';t.style.transition='opacity .3s';setTimeout(()=>t.remove(),300);},2000);
+}
 </script>
 </body>
 </html>
