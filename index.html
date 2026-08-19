@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>汪星妤 · 商业运营作品集</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -304,7 +305,7 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   .project-inner{grid-template-columns:1fr;gap:40px}
   .project:nth-child(even) .project-inner{direction:ltr}
   .project:nth-child(odd) .project-number,.project:nth-child(even) .project-number{left:-10px;right:auto;font-size:72px;top:-30px}
-  .project-visual{height:360px}
+  .project-visual{height:420px}
   .project-title{font-size:26px}
   .project-metrics{grid-template-columns:repeat(3,1fr)}
   .skills-grid{grid-template-columns:1fr}
@@ -313,18 +314,120 @@ body{font-family:var(--font);background:var(--bg);color:var(--text);line-height:
   .nav-links{display:none}
 }
 @media(max-width:640px){
-  .hero h1{font-size:34px}
-  .hero-stats{grid-template-columns:1fr 1fr}
+  .container{padding:0 18px}
+  .nav-inner{padding:0 18px;height:56px}
+  .nav-cta{padding:8px 14px;font-size:12px}
+  .hero{padding:90px 0 60px;min-height:auto}
+  .hero h1{font-size:32px;line-height:1.1}
+  .hero-role{font-size:16px;margin-bottom:14px}
+  .hero-desc{font-size:14px;margin-bottom:24px}
+  .hero-badge{font-size:12px;padding:6px 12px;margin-bottom:20px}
+  .hero-meta{gap:20px;margin-bottom:28px}
+  .hero-meta-label{font-size:10px}
+  .hero-meta-value{font-size:13px}
+  .hero-cta{gap:10px}
+  .btn-primary,.btn-secondary{padding:12px 20px;font-size:14px}
+  .hero-stats{grid-template-columns:1fr 1fr;margin-top:40px;border-radius:12px}
+  .hero-stat{padding:18px 12px}
   .hero-stat-num{font-size:24px}
-  .project-metrics{grid-template-columns:1fr 1fr}
-  .container{padding:0 20px}
-  .nav-inner{padding:0 20px}
-  .project-visual{height:280px}
-  .project-number{font-size:56px!important;top:-24px!important}
+  .hero-stat-label{font-size:11px;margin-top:6px}
+  .section{padding:60px 0}
+  .section-header{margin-bottom:36px}
+  .section-title{font-size:26px;line-height:1.2}
+  .section-desc{font-size:14px}
+  .section-label{font-size:11px;margin-bottom:8px}
+  .advantages-grid{gap:14px}
+  .adv-card{padding:22px;border-radius:14px}
+  .adv-icon{width:40px;height:40px;font-size:20px;margin-bottom:14px}
+  .adv-title{font-size:16px;margin-bottom:8px}
+  .adv-desc{font-size:13px;line-height:1.7}
+  .edu-grid{gap:14px}
+  .edu-card{padding:22px;border-radius:14px;gap:14px}
+  .edu-logo{width:44px;height:44px;font-size:14px}
+  .edu-school{font-size:16px}
+  .edu-degree{font-size:13px}
+  .timeline::before{left:16px}
+  .tl-item{padding-left:48px;padding-bottom:32px}
+  .tl-dot{left:6px;top:6px;width:18px;height:18px;border-width:2.5px}
+  .tl-card{padding:22px;border-radius:14px}
+  .tl-company{font-size:17px}
+  .tl-role{font-size:14px;margin-bottom:12px}
+  .tl-list li{font-size:13px;padding-left:16px;margin-bottom:6px;line-height:1.7}
+  .tl-list li::before{width:5px;height:5px;top:9px}
   .projects-list{gap:60px}
-  .project-title{font-size:22px}
-  .bento-img{border-radius:10px}
-  .bento-chip{font-size:10px!important;padding:5px 10px!important}
+  .project-number{font-size:48px!important;top:-20px!important;left:-4px!important;right:auto!important;-webkit-text-stroke:1px var(--border)}
+  .project-inner{gap:28px}
+  .project-meta{gap:8px;margin-bottom:14px;flex-wrap:wrap}
+  .project-index{font-size:11px}
+  .project-tag{font-size:10px;padding:4px 10px}
+  .project-title{font-size:20px;line-height:1.25;margin-bottom:8px}
+  .project-subtitle{font-size:13px;margin-bottom:16px}
+  .project-bsframe{gap:10px;margin-bottom:16px}
+  .bs-item{gap:8px}
+  .bs-label{font-size:9px;padding:3px 8px;border-radius:4px}
+  .bs-text{font-size:13px;line-height:1.7}
+  .project-metrics{grid-template-columns:1fr 1fr;gap:10px}
+  .metric{padding:14px;border-radius:12px}
+  .metric-num{font-size:20px}
+  .metric-label{font-size:11px}
+  /* ===== BENTO GRID MOBILE: switch from absolute to vertical stack ===== */
+  .project-visual{height:auto!important;min-height:0}
+  .bento-grid{display:flex;flex-direction:column;gap:10px;height:auto!important;position:relative}
+  .bento-grid .bento-img{
+    position:relative!important;
+    width:100%!important;
+    height:220px!important;
+    top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+    transform:rotate(0)!important;
+    z-index:1!important;
+    border-radius:12px;
+    margin:0!important;
+  }
+  .bento-grid .bento-main{height:280px!important;order:-1}
+  .bento-grid .pie-chart-wrap{
+    position:relative!important;
+    width:100%!important;
+    height:320px!important;
+    top:auto!important;left:auto!important;right:auto!important;bottom:auto!important;
+    transform:rotate(0)!important;
+    margin:0!important;
+    border-radius:12px;
+    background:var(--surface-2);
+    padding:20px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+  }
+  .bento-grid .pie-chart-wrap .pie-svg{width:180px;height:180px}
+  .bento-grid .bento-chip{
+    position:static!important;
+    display:inline-block;
+    align-self:flex-start;
+    margin-top:4px;
+    font-size:11px!important;
+    padding:6px 12px!important;
+  }
+  .bento-grid .bento-overlay{display:none}
+  .bento-grid .resize-handle{display:none!important}
+  .skills-grid{gap:14px}
+  .skill-card{padding:22px;border-radius:14px}
+  .skill-cat{font-size:11px;margin-bottom:12px}
+  .skill-items{gap:6px}
+  .skill-tag{font-size:12px;padding:6px 12px}
+  .contact{padding:60px 0}
+  .contact-card{padding:32px 22px;border-radius:20px}
+  .contact-title{font-size:24px}
+  .contact-subtitle{font-size:14px}
+  .contact-actions{flex-direction:column;gap:10px}
+  .contact-btn{padding:12px 20px;font-size:14px;width:100%;justify-content:center}
+  .contact-meta{flex-direction:column;gap:8px;margin-top:24px}
+  .contact-meta-item{font-size:13px}
+  .footer{padding:28px 0}
+  .footer p{font-size:12px}
+  .footer-links{gap:16px}
+  .footer-links a{font-size:12px}
+  .edit-fab{bottom:16px;right:16px}
+  .edit-fab button{padding:10px 16px;font-size:12px}
+  .lightbox-img{max-width:95vw;max-height:80vh;border-radius:12px}
+  .lightbox-close{top:16px;right:16px;width:36px;height:36px;font-size:20px}
 }
 
 /* ===== VISUAL EDITOR ===== */
